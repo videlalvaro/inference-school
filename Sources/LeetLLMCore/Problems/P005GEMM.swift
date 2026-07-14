@@ -121,9 +121,10 @@ public enum P005GEMMJudge {
         var output = Array(repeating: Float.zero, count: m * n)
         for row in 0..<m {
             for column in 0..<n {
-                output[row * n + column] = Float((0..<k).reduce(0.0) { sum, inner in
-                    sum + Double(lhs[row * k + inner]) * Double(rhs[inner * n + column])
-                })
+                let sum: Double = (0..<k).reduce(0.0) { accumulator, inner in
+                    accumulator + Double(lhs[row * k + inner]) * Double(rhs[inner * n + column])
+                }
+                output[row * n + column] = Float(sum)
             }
         }
         return output
