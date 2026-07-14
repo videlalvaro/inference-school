@@ -434,7 +434,7 @@ private struct StudioRootView: View {
 struct LessonReader: View {
     let lesson: LessonDocument
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @State private var previewedDocument: PreviewedMarkdownDocument?
+    @State private var previewedDocument: PreviewedLocalDocument?
 
     var body: some View {
         ScrollViewReader { proxy in
@@ -527,17 +527,14 @@ struct LessonReader: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationTitle(lesson.title)
         .environment(\.openURL, OpenURLAction { url in
-            // Lesson prose links to sibling course docs (e.g. the math primer) with
-            // relative paths, which Textual resolves to file URLs. The app is sandboxed,
-            // so handing those to the system is a no-op; render them in-app instead.
-            if let document = PreviewedMarkdownDocument(resolving: url) {
+            if let document = PreviewedLocalDocument(resolving: url) {
                 previewedDocument = document
                 return .handled
             }
             return .systemAction
         })
         .sheet(item: $previewedDocument) { document in
-            MarkdownPreviewSheet(document: document)
+            LocalDocumentPreviewSheet(document: document)
         }
     }
 
@@ -552,19 +549,23 @@ struct LessonReader: View {
     }
 }
 
-/// A Markdown document referenced from a lesson (such as the math primer) that is
-/// rendered in-app rather than handed to the sandboxed system open handler.
-private struct PreviewedMarkdownDocument: Identifiable {
+struct PreviewedLocalDocument: Identifiable {
+    enum Kind: Equatable {
+        case markdown
+        case source(language: String)
+    }
+
     let id: String
     let title: String
-    let markdown: String
+    let contents: String
     let baseURL: URL
+    let kind: Kind
 
     init?(resolving url: URL) {
-        // Textual delivers relative links as a URL with a file base; resolve to the
-        // absolute path (dropping any fragment) before reading from disk.
         let absolute = url.absoluteURL
-        guard absolute.isFileURL, absolute.pathExtension.lowercased() == "md" else {
+        guard absolute.isFileURL,
+              let kind = Self.kind(forExtension: absolute.pathExtension)
+        else {
             return nil
         }
         let fileURL = URL(fileURLWithPath: absolute.path).standardizedFileURL
@@ -572,10 +573,29 @@ private struct PreviewedMarkdownDocument: Identifiable {
             return nil
         }
         self.id = fileURL.path
-        self.markdown = contents
+        self.contents = contents
         self.baseURL = fileURL.deletingLastPathComponent()
-        self.title = Self.firstHeading(in: contents)
-            ?? fileURL.deletingPathExtension().lastPathComponent
+        self.kind = kind
+        switch kind {
+        case .markdown:
+            self.title = Self.firstHeading(in: contents)
+                ?? fileURL.deletingPathExtension().lastPathComponent
+        case .source:
+            self.title = fileURL.lastPathComponent
+        }
+    }
+
+    private static func kind(forExtension pathExtension: String) -> Kind? {
+        switch pathExtension.lowercased() {
+        case "md":
+            .markdown
+        case "swift":
+            .source(language: "swift")
+        case "metal":
+            .source(language: "metal")
+        default:
+            nil
+        }
     }
 
     private static func firstHeading(in markdown: String) -> String? {
@@ -589,27 +609,41 @@ private struct PreviewedMarkdownDocument: Identifiable {
     }
 }
 
-private struct MarkdownPreviewSheet: View {
-    let document: PreviewedMarkdownDocument
+private struct LocalDocumentPreviewSheet: View {
+    let document: PreviewedLocalDocument
     @Environment(\.dismiss) private var dismiss
+    @AppStorage(StudioTextSize.storageKey) private var textSize = StudioTextSize.defaultValue
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                StructuredText(
-                    markdown: document.markdown,
-                    baseURL: document.baseURL,
-                    syntaxExtensions: [.math]
-                )
-                .textual.structuredTextStyle(.gitHub)
-                .textual.textSelection(.enabled)
-                .textual.imageAttachmentLoader(.image(relativeTo: document.baseURL))
-                .frame(maxWidth: 860, alignment: .leading)
-                .padding(.horizontal, 32)
-                .padding(.vertical, 28)
-                .frame(maxWidth: .infinity, alignment: .top)
+            Group {
+                switch document.kind {
+                case .markdown:
+                    ScrollView {
+                        StructuredText(
+                            markdown: document.contents,
+                            baseURL: document.baseURL,
+                            syntaxExtensions: [.math]
+                        )
+                        .textual.structuredTextStyle(.gitHub)
+                        .textual.textSelection(.enabled)
+                        .textual.imageAttachmentLoader(.image(relativeTo: document.baseURL))
+                        .frame(maxWidth: 860, alignment: .leading)
+                        .padding(.horizontal, 32)
+                        .padding(.vertical, 28)
+                        .frame(maxWidth: .infinity, alignment: .top)
+                    }
+                case let .source(language):
+                    CodeEditorView(
+                        text: .constant(document.contents),
+                        documentID: document.id,
+                        language: language,
+                        textScale: textSize,
+                        isEditable: false
+                    )
+                }
             }
-            .frame(minWidth: 640, minHeight: 520)
+            .frame(minWidth: 720, minHeight: 560)
             .navigationTitle(document.title)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
