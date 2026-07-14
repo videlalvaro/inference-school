@@ -19,7 +19,7 @@ struct LessonWorkspaceView: View {
             )
             .id(lesson.id)
         } else {
-            LessonReader(lesson: lesson)
+            LessonReader(lesson: lesson, textSize: textSize)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
@@ -48,7 +48,7 @@ private struct LessonActivityWorkspace: View {
                 collapsedLayout(placement: placement)
             } else if placement == .trailing {
                 HSplitView {
-                    LessonReader(lesson: lesson)
+                    LessonReader(lesson: lesson, textSize: textSize)
                         .frame(minWidth: 520, idealWidth: 620)
                     LessonWorkbench(
                         model: model,
@@ -60,7 +60,7 @@ private struct LessonActivityWorkspace: View {
                 }
             } else {
                 VSplitView {
-                    LessonReader(lesson: lesson)
+                    LessonReader(lesson: lesson, textSize: textSize)
                         .frame(minHeight: 320, idealHeight: 470)
                     LessonWorkbench(
                         model: model,
@@ -86,7 +86,7 @@ private struct LessonActivityWorkspace: View {
     private func collapsedLayout(placement: WorkbenchPanel.Placement) -> some View {
         if placement == .trailing {
             HStack(spacing: 0) {
-                LessonReader(lesson: lesson)
+                LessonReader(lesson: lesson, textSize: textSize)
                 Divider()
                 WorkbenchRestoreBar(placement: placement) {
                     isWorkbenchCollapsed = false
@@ -94,7 +94,7 @@ private struct LessonActivityWorkspace: View {
             }
         } else {
             VStack(spacing: 0) {
-                LessonReader(lesson: lesson)
+                LessonReader(lesson: lesson, textSize: textSize)
                 Divider()
                 WorkbenchRestoreBar(placement: placement) {
                     isWorkbenchCollapsed = false

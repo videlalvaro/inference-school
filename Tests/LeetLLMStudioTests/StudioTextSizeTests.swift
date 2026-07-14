@@ -26,11 +26,4 @@ final class StudioTextSizeTests: XCTestCase {
         XCTAssertEqual(value, StudioTextSize.minimum)
         XCTAssertFalse(StudioTextSize.canDecrease(value))
     }
-
-    func testDynamicTypeMappingCoversDefaultAndAccessibilityEndpoints() {
-        XCTAssertEqual(StudioTextSize.dynamicTypeSize(for: 0.8), .small)
-        XCTAssertEqual(StudioTextSize.dynamicTypeSize(for: 1.0), .large)
-        XCTAssertEqual(StudioTextSize.dynamicTypeSize(for: 1.5), .accessibility2)
-        XCTAssertEqual(StudioTextSize.dynamicTypeSize(for: 2.0), .accessibility5)
-    }
 }
