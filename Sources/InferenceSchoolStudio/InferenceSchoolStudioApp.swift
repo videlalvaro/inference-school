@@ -606,7 +606,8 @@ private struct LocalDocumentPreviewSheet: View {
                 case .markdown:
                     ScrollView {
                         StructuredText(
-                            markdown: document.contents,
+                            markdown: LessonMarkdownRendering
+                                .normalizeDisplayMath(in: document.contents),
                             baseURL: document.baseURL,
                             syntaxExtensions: [.math]
                         )
