@@ -256,4 +256,4 @@ For every operation, ask:
    launch overhead, or synchronization?
 7. Does the measurement isolate that cost?
 
-The rest of LeetLLM turns each question into an executable problem.
+The rest of Inference School turns each question into an executable problem.

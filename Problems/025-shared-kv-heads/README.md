@@ -97,8 +97,8 @@ the exact `384/96/192` byte fixture and independently verifies that `3:2` head
 counts throw.
 
 ```sh
-swift run leetllm check 025 --cpu
-swift run leetllm check 025 --solution
+swift run inference-school check 025 --cpu
+swift run inference-school check 025 --solution
 ```
 
 ## Performance, bandwidth, and allocation model
@@ -174,10 +174,10 @@ one output vector per query head.
 
 ## Canonical solution
 
-- [GQA cache judge and byte model](../../Sources/LeetLLMCore/Problems/P025SharedKVHeads.swift)
-- [Canonical cached implementation](../../Sources/LeetLLMSolutions/P025SharedKVHeadsSolution.swift)
-- [Modulo rejection tests](../../Tests/LeetLLMCoreTests/P025SharedKVHeadsTests.swift)
-- [Shared Metal decode kernel](../../Sources/LeetLLMSolutions/Metal/P023CachedAttention.metal)
+- [GQA cache judge and byte model](../../Sources/InferenceSchoolCore/Problems/P025SharedKVHeads.swift)
+- [Canonical cached implementation](../../Sources/InferenceSchoolSolutions/P025SharedKVHeadsSolution.swift)
+- [Modulo rejection tests](../../Tests/InferenceSchoolCoreTests/P025SharedKVHeadsTests.swift)
+- [Shared Metal decode kernel](../../Sources/InferenceSchoolSolutions/Metal/P023CachedAttention.metal)
 
 ## Completion checklist
 

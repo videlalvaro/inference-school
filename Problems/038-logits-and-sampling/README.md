@@ -170,8 +170,8 @@ A test passes an always-greedy implementation to the same judge and requires it
 to fail.
 
 ```sh
-swift run leetllm check 038 --cpu
-swift run leetllm check 038 --solution
+swift run inference-school check 038 --cpu
+swift run inference-school check 038 --solution
 ```
 
 ## Performance model: work, bytes, and allocation
@@ -274,11 +274,11 @@ diagnostics so policy divergence is distinguishable from model-logit divergence.
 
 ## Canonical solution
 
-- [Sampling types, SplitMix64, validation, sampler owner, and judge](../../Sources/LeetLLMCore/Problems/P038LogitsSampling.swift)
-- [Learner greedy starter](../../Sources/LeetLLMExercises/P038LogitsSamplingExercise.swift)
-- [Canonical filtering and seeded sampling](../../Sources/LeetLLMSolutions/P038LogitsSamplingSolution.swift)
-- [Boundary, reproducibility, and wrong-implementation tests](../../Tests/LeetLLMCoreTests/P038LogitsSamplingTests.swift)
-- [Stable softmax prerequisite](../../Sources/LeetLLMCore/Problems/P009Softmax.swift)
+- [Sampling types, SplitMix64, validation, sampler owner, and judge](../../Sources/InferenceSchoolCore/Problems/P038LogitsSampling.swift)
+- [Learner greedy starter](../../Sources/InferenceSchoolExercises/P038LogitsSamplingExercise.swift)
+- [Canonical filtering and seeded sampling](../../Sources/InferenceSchoolSolutions/P038LogitsSamplingSolution.swift)
+- [Boundary, reproducibility, and wrong-implementation tests](../../Tests/InferenceSchoolCoreTests/P038LogitsSamplingTests.swift)
+- [Stable softmax prerequisite](../../Sources/InferenceSchoolCore/Problems/P009Softmax.swift)
 
 ## Completion checklist
 

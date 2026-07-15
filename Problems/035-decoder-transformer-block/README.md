@@ -191,8 +191,8 @@ width, negative offsets, wrong weight shapes, non-finite state, invalid head
 division, and invalid rotary dimensions.
 
 ```sh
-swift run leetllm check 035 --cpu
-swift run leetllm check 035 --solution
+swift run inference-school check 035 --cpu
+swift run inference-school check 035 --solution
 ```
 
 ## Performance model: work, bytes, and allocation
@@ -303,10 +303,10 @@ sampling boundaries.
 
 ## Canonical solution
 
-- [Configuration, weights, captures, contract, and independent judge](../../Sources/LeetLLMCore/Problems/P035DecoderBlock.swift)
-- [Learner starter](../../Sources/LeetLLMExercises/P035DecoderBlockExercise.swift)
-- [Canonical CPU block](../../Sources/LeetLLMSolutions/P035DecoderBlockSolution.swift)
-- [Order and configuration tests](../../Tests/LeetLLMCoreTests/P035DecoderBlockTests.swift)
+- [Configuration, weights, captures, contract, and independent judge](../../Sources/InferenceSchoolCore/Problems/P035DecoderBlock.swift)
+- [Learner starter](../../Sources/InferenceSchoolExercises/P035DecoderBlockExercise.swift)
+- [Canonical CPU block](../../Sources/InferenceSchoolSolutions/P035DecoderBlockSolution.swift)
+- [Order and configuration tests](../../Tests/InferenceSchoolCoreTests/P035DecoderBlockTests.swift)
 
 ## Completion checklist
 

@@ -109,9 +109,9 @@ KV context. It tests wrong query rank and missing visible keys. Tolerance is
 `3e-5 + 8e-5*abs(expected)`.
 
 ```sh
-swift run leetllm check 016 --cpu
-swift run leetllm check 016 --metal
-swift run leetllm check 016 --solution
+swift run inference-school check 016 --cpu
+swift run inference-school check 016 --metal
+swift run inference-school check 016 --solution
 ```
 
 ## Performance model
@@ -136,7 +136,7 @@ Two compute encoders enforce score production before consumption. There is no
 threadgroup barrier because rows are processed serially inside the applying
 thread. This is correct and inspectable, not yet a throughput-optimized mapping.
 
-See [P016CausalAttention.metal](../../Sources/LeetLLMSolutions/Metal/P016CausalAttention.metal).
+See [P016CausalAttention.metal](../../Sources/InferenceSchoolSolutions/Metal/P016CausalAttention.metal).
 
 ## Implementation checkpoints
 
@@ -187,9 +187,9 @@ head concatenation and output projection.
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P016CausalAttentionSolution.swift)
-- [Metal solution](../../Sources/LeetLLMSolutions/Metal/P016CausalAttention.metal)
-- [Materialized judge](../../Sources/LeetLLMCore/Problems/P016CausalAttention.swift)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P016CausalAttentionSolution.swift)
+- [Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P016CausalAttention.metal)
+- [Materialized judge](../../Sources/InferenceSchoolCore/Problems/P016CausalAttention.swift)
 
 ## Completion checklist
 

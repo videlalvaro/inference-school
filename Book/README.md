@@ -1,9 +1,9 @@
-# LeetLLM companion book
+# Inference School companion book
 
 This directory contains the reproducible LaTeX publication pipeline for the
-LeetLLM companion book. The curriculum remains authoritative in `Problems/`,
-and code listings are read directly from `Sources/LeetLLMExercises/` and
-`Sources/LeetLLMSolutions/` when the manuscript is generated.
+Inference School companion book. The curriculum remains authoritative in `Problems/`,
+and code listings are read directly from `Sources/InferenceSchoolExercises/` and
+`Sources/InferenceSchoolSolutions/` when the manuscript is generated.
 
 ## Build
 
@@ -13,7 +13,7 @@ From this directory:
 make book
 ```
 
-The final PDF is copied to the repository's `dist/LeetLLM-Companion.pdf`.
+The final PDF is copied to the repository's `dist/Inference-School-Companion.pdf`.
 Generated Markdown, LaTeX, auxiliary files, and the intermediate PDF remain
 under `Book/build/`. Commit the published PDF when curriculum or book source
 changes affect its contents.

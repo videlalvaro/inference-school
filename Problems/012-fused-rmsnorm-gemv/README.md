@@ -153,9 +153,9 @@ unnormalized projection and must fail even though its output shape is correct.
 Run:
 
 ```sh
-swift run leetllm check 012 --cpu
-swift run leetllm check 012 --metal
-swift run leetllm check 012 --solution
+swift run inference-school check 012 --cpu
+swift run inference-school check 012 --metal
+swift run inference-school check 012 --solution
 ```
 
 ## Performance model
@@ -201,7 +201,7 @@ once and reuses it, at the cost of more threadgroup storage and a 2D ownership
 scheme. That is the next optimization justified if profiling shows repeated
 norm work matters.
 
-See [P012FusedRMSNormGEMV.metal](../../Sources/LeetLLMSolutions/Metal/P012FusedRMSNormGEMV.metal).
+See [P012FusedRMSNormGEMV.metal](../../Sources/InferenceSchoolSolutions/Metal/P012FusedRMSNormGEMV.metal).
 
 ## Implementation checkpoints
 
@@ -273,8 +273,8 @@ or dispatches are automatically faster.
 
 ## Canonical solution
 
-- [Separate CPU baseline](../../Sources/LeetLLMSolutions/P012FusedRMSNormGEMVSolution.swift)
-- [Fused Metal solution](../../Sources/LeetLLMSolutions/Metal/P012FusedRMSNormGEMV.metal)
+- [Separate CPU baseline](../../Sources/InferenceSchoolSolutions/P012FusedRMSNormGEMVSolution.swift)
+- [Fused Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P012FusedRMSNormGEMV.metal)
 
 ## Completion checklist
 

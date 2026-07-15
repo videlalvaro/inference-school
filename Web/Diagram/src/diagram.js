@@ -107,7 +107,7 @@ async function renderedCanvas(renderID, source) {
   };
 }
 
-window.LeetDiagram = {
+window.InferenceSchoolDiagram = {
   async render(payload) {
     const sequence = ++renderSequence;
     currentZoom = normalizedZoom(payload.zoom);

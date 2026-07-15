@@ -4,61 +4,61 @@
             "type": "swift",
             "request": "launch",
             "args": [],
-            "cwd": "${workspaceFolder:leet-llm}",
-            "name": "Debug leetllm",
-            "target": "leetllm",
+            "cwd": "${workspaceFolder}",
+            "name": "Debug inference-school",
+            "target": "inference-school",
             "configuration": "debug",
-            "preLaunchTask": "swift: Build Debug leetllm"
+            "preLaunchTask": "swift: Build Debug inference-school"
         },
         {
             "type": "swift",
             "request": "launch",
             "args": [],
-            "cwd": "${workspaceFolder:leet-llm}",
-            "name": "Release leetllm",
-            "target": "leetllm",
+            "cwd": "${workspaceFolder}",
+            "name": "Release inference-school",
+            "target": "inference-school",
             "configuration": "release",
-            "preLaunchTask": "swift: Build Release leetllm"
+            "preLaunchTask": "swift: Build Release inference-school"
         },
         {
             "type": "swift",
             "request": "launch",
             "args": [],
-            "cwd": "${workspaceFolder:leet-llm}",
-            "name": "Debug leetllm-studio",
-            "target": "leetllm-studio",
+            "cwd": "${workspaceFolder}",
+            "name": "Debug inference-school-studio",
+            "target": "inference-school-studio",
             "configuration": "debug",
-            "preLaunchTask": "swift: Build Debug leetllm-studio"
+            "preLaunchTask": "swift: Build Debug inference-school-studio"
         },
         {
             "type": "swift",
             "request": "launch",
             "args": [],
-            "cwd": "${workspaceFolder:leet-llm}",
-            "name": "Release leetllm-studio",
-            "target": "leetllm-studio",
+            "cwd": "${workspaceFolder}",
+            "name": "Release inference-school-studio",
+            "target": "inference-school-studio",
             "configuration": "release",
-            "preLaunchTask": "swift: Build Release leetllm-studio"
+            "preLaunchTask": "swift: Build Release inference-school-studio"
         },
         {
             "type": "swift",
             "request": "launch",
             "args": [],
-            "cwd": "${workspaceFolder:leet-llm}",
-            "name": "Debug leetllm-runner",
-            "target": "leetllm-runner",
+            "cwd": "${workspaceFolder}",
+            "name": "Debug inference-school-runner",
+            "target": "inference-school-runner",
             "configuration": "debug",
-            "preLaunchTask": "swift: Build Debug leetllm-runner"
+            "preLaunchTask": "swift: Build Debug inference-school-runner"
         },
         {
             "type": "swift",
             "request": "launch",
             "args": [],
-            "cwd": "${workspaceFolder:leet-llm}",
-            "name": "Release leetllm-runner",
-            "target": "leetllm-runner",
+            "cwd": "${workspaceFolder}",
+            "name": "Release inference-school-runner",
+            "target": "inference-school-runner",
             "configuration": "release",
-            "preLaunchTask": "swift: Build Release leetllm-runner"
+            "preLaunchTask": "swift: Build Release inference-school-runner"
         }
     ]
 }

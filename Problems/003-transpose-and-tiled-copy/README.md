@@ -110,7 +110,7 @@ new physical ordering.
 ## CPU reference path
 
 Open
-[P003TransposeExercise.swift](../../Sources/LeetLLMExercises/P003TransposeExercise.swift).
+[P003TransposeExercise.swift](../../Sources/InferenceSchoolExercises/P003TransposeExercise.swift).
 
 The readable algorithm is:
 
@@ -126,7 +126,7 @@ return tensor(output, shape: [C, R])
 Run:
 
 ```sh
-swift run leetllm check 003 --cpu
+swift run inference-school check 003 --cpu
 ```
 
 Keeping the input loop row-major gives contiguous reads and strided writes. If
@@ -179,7 +179,7 @@ would otherwise make strided accesses, one copy may amortize its cost.
 ## Metal mapping
 
 Open
-[P003Transpose.metal](../../Sources/LeetLLMExercises/Metal/P003Transpose.metal).
+[P003Transpose.metal](../../Sources/InferenceSchoolExercises/Metal/P003Transpose.metal).
 
 The canonical dispatch uses:
 
@@ -242,9 +242,9 @@ valid transposed input coordinate before storing a valid output coordinate.
 Run each path independently:
 
 ```sh
-swift run leetllm check 003 --cpu
-swift run leetllm check 003 --metal
-swift run leetllm check 003
+swift run inference-school check 003 --cpu
+swift run inference-school check 003 --metal
+swift run inference-school check 003
 ```
 
 ## Controlled experiments
@@ -316,10 +316,10 @@ Load `tile[localY][localX]`. After the barrier, store
 <summary>Canonical check</summary>
 
 ```sh
-swift run leetllm check 003 --solution
+swift run inference-school check 003 --solution
 ```
 
-Canonical Swift and Metal sources are under `Sources/LeetLLMSolutions`.
+Canonical Swift and Metal sources are under `Sources/InferenceSchoolSolutions`.
 
 </details>
 

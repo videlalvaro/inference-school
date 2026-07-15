@@ -1,4 +1,4 @@
-# LeetLLM Studio: Product and Implementation Plan
+# Inference School Studio: Product and Implementation Plan
 
 ## Status
 
@@ -25,7 +25,7 @@ reclassify the completed terminal curriculum as unfinished.
 
 ## Decision summary
 
-LeetLLM Studio will be:
+Inference School Studio will be:
 
 - a native macOS application with a SwiftUI shell;
 - an offline-first lesson reader, code workbench, visualization environment,
@@ -35,8 +35,8 @@ LeetLLM Studio will be:
 - usable with a plain Markdown lesson and progressively enhanced by optional
   fenced directives for quizzes, editable code, diagrams, traces, benchmarks,
   and inference controls;
-- built on the existing `LeetLLMCore` contracts and judges; and
-- a generic course framework underneath a LeetLLM-specific content pack.
+- built on the existing `InferenceSchoolCore` contracts and judges; and
+- a generic course framework underneath a Inference School-specific content pack.
 
 The initial downloadable app should be Developer ID signed and distributed
 outside the Mac App Store. Live compilation of arbitrary learner-authored Swift
@@ -171,7 +171,7 @@ the preferred design is:
 - a new TypeScript browser application for navigation, lesson rendering,
   editing, diagrams, quizzes, progress, and runner event presentation;
 - the existing Markdown lessons as the single content source;
-- generated catalog data from `LeetLessonKit` rather than a second independent
+- generated catalog data from `InferenceSchoolLessonKit` rather than a second independent
   parser for lesson metadata and directives;
 - reuse of the existing browser-native CodeMirror and Mermaid packages;
 - the versioned `RunRequest` and `RunEvent` contract exposed through a transport
@@ -372,7 +372,7 @@ Every diagram must support:
 
 `LessonCatalog` discovers lessons from any number of content roots:
 
-- the built-in LeetLLM content pack;
+- the built-in Inference School content pack;
 - the repository's `Problems/` directory in author mode;
 - user-selected folders stored as security-scoped bookmarks;
 - unpacked or installed `.leetcourse` packs; and
@@ -433,11 +433,11 @@ Richer navigation uses common YAML front matter:
 ```yaml
 ---
 formatVersion: 1
-id: leetllm.014
+id: inference-school.014
 title: Q/K/V Projections and Head Views
 order: 14
 module: positions-and-attention
-prerequisites: [leetllm.002, leetllm.004, leetllm.005]
+prerequisites: [inference-school.002, inference-school.004, inference-school.005]
 tags: [attention, shapes, gqa]
 estimatedMinutes: 90
 contentVersion: 1
@@ -450,7 +450,7 @@ Markdown document disappears.
 
 ### Progressive enhancement through fenced directives
 
-Interactive blocks remain valid Markdown code fences. Outside LeetLLM Studio,
+Interactive blocks remain valid Markdown code fences. Outside Inference School Studio,
 they degrade to visible, inspectable text rather than proprietary binary data.
 
 An inline quiz can be authored in one file:
@@ -497,8 +497,8 @@ A repository-backed exercise can bind the editor to an existing file and judge:
 ```exercise {#p014-cpu}
 schemaVersion: 1
 language: swift
-file: Sources/LeetLLMExercises/P014QKVProjectionExercise.swift
-evaluator: leetllm-check
+file: Sources/InferenceSchoolExercises/P014QKVProjectionExercise.swift
+evaluator: inference-school-check
 arguments: ["014", "--cpu"]
 visualizers: [tensor, matrix-operation]
 ```
@@ -517,7 +517,7 @@ warning. This lets newer content remain readable in older app versions.
 
 Every directive kind has a published schema defining required fields, optional
 fields, references, output bindings, and supported schema versions. Version 1 is
-assumed only for early author previews; `leetlesson pack` writes an explicit
+assumed only for early author previews; `inference-school-lesson pack` writes an explicit
 `schemaVersion`. A newer unsupported version falls back to a code block and an
 author warning rather than partial execution. Directive schemas and sample
 documents are validated in CI.
@@ -584,7 +584,7 @@ Author mode provides:
 - duplicate-ID and broken-link checks;
 - a section-outline and accessibility audit;
 - activity preview with fixture data;
-- `leetlesson validate`, `preview`, `test`, and `pack` CLI equivalents;
+- `inference-school-lesson validate`, `preview`, `test`, and `pack` CLI equivalents;
 - content-version and progress-migration previews; and
 - a generated compatibility report for the minimum app version.
 
@@ -598,7 +598,7 @@ No `Course.swift` edit, app rebuild, or manual menu entry is permitted.
 Learner code can crash, loop forever, allocate excessive memory, call `exit`, or
 trigger a GPU failure. It must not execute in the UI process.
 
-The app communicates with a `leetllm-runner` process using versioned JSON Lines
+The app communicates with a `inference-school-runner` process using versioned JSON Lines
 messages over pipes. The runner owns workspace preparation, compilation,
 execution, cancellation, output limits, and structured result capture.
 
@@ -675,17 +675,17 @@ The UI must show:
 
 ### Judge integration
 
-The current `ProblemRunner` mapping is private to `LeetLLMCLI`. It must be
+The current `ProblemRunner` mapping is private to `InferenceSchoolCLI`. It must be
 extracted into a reusable runtime boundary or exposed through a structured CLI
 mode. The first migration should add:
 
 - a public problem/activity registry shared by CLI and runner;
-- `leetllm check ... --format jsonl`;
+- `inference-school check ... --format jsonl`;
 - stable IDs for stages and cases;
 - typed diagnostics and attachments; and
 - no terminal-string parsing in the app.
 
-Judges remain in `LeetLLMCore`. The app must not reproduce expected values,
+Judges remain in `InferenceSchoolCore`. The app must not reproduce expected values,
 tolerances, or hidden cases.
 
 ### Runner protocol
@@ -716,15 +716,15 @@ pipe.
 
 ```mermaid
 flowchart LR
-  Roots[Markdown content roots] --> Catalog[LeetLessonKit catalog]
+  Roots[Markdown content roots] --> Catalog[InferenceSchoolLessonKit catalog]
   Catalog --> AST[Lesson AST and activities]
-  AST --> App[LeetLLM Studio SwiftUI shell]
+  AST --> App[Inference School Studio SwiftUI shell]
   App --> Progress[(Progress SQLite store)]
   App <--> RunnerClient[Runner client]
-  RunnerClient <--> Runner[leetllm-runner process]
+  RunnerClient <--> Runner[inference-school-runner process]
   Runner --> Toolchain[SwiftPM and SourceKit toolchain]
   Runner --> Metal[Metal runtime compiler]
-  Runner --> Core[LeetLLMCore judges and engine]
+  Runner --> Core[InferenceSchoolCore judges and engine]
   Runner --> Events[Diagnostics, tensors, traces, metrics]
   Events --> App
   App --> Visualizers[Reusable visualization handlers]
@@ -734,15 +734,15 @@ flowchart LR
 
 | Module | Responsibility |
 | --- | --- |
-| `LeetLessonKit` | Markdown parsing, front matter, directives, discovery, validation, content packs |
-| `LeetRunnerProtocol` | Codable requests, events, diagnostics, artifacts, schema versions |
-| `LeetLLMRuntime` | Shared problem registry, judge adapters, benchmark and inference scenarios |
-| `LeetVisualizationKit` | Tensor, GPU, attention, cache, quantization, performance, inference views |
-| `LeetProgressStore` | Attempts, evidence, mastery, notes, content-version migrations, export |
-| `leetllm-runner` | Toolchain discovery, workspace builds, Metal execution, process limits |
-| `leetlesson` | Validate, preview, test, index, and package author content |
-| `LeetLLMStudio` | SwiftUI navigation, lesson canvas, workbench, settings, accessibility |
-| `LeetLLMContent` | Built-in Markdown, assets, starter workspace, fixtures, and pack metadata |
+| `InferenceSchoolLessonKit` | Markdown parsing, front matter, directives, discovery, validation, content packs |
+| `InferenceSchoolRunnerProtocol` | Codable requests, events, diagnostics, artifacts, schema versions |
+| `InferenceSchoolRuntime` | Shared problem registry, judge adapters, benchmark and inference scenarios |
+| `InferenceSchoolVisualizationKit` | Tensor, GPU, attention, cache, quantization, performance, inference views |
+| `InferenceSchoolProgressStore` | Attempts, evidence, mastery, notes, content-version migrations, export |
+| `inference-school-runner` | Toolchain discovery, workspace builds, Metal execution, process limits |
+| `inference-school-lesson` | Validate, preview, test, index, and package author content |
+| `InferenceSchoolStudio` | SwiftUI navigation, lesson canvas, workbench, settings, accessibility |
+| `InferenceSchoolContent` | Built-in Markdown, assets, starter workspace, fixtures, and pack metadata |
 
 The macOS app should be a thin Xcode app target over local Swift packages. The
 framework, runner protocol, runtime, and authoring tools remain testable with
@@ -787,7 +787,7 @@ Prose corrections do not invalidate evidence. Adding an optional activity
 preserves prior completion. Removing an activity archives its attempts rather
 than deleting them. Renaming or replacing an activity requires an explicit
 old-ID to new-ID migration; without one, prior evidence is retained as stale and
-is never silently assigned to a different task. `leetlesson validate` checks
+is never silently assigned to a different task. `inference-school-lesson validate` checks
 these migrations against the previous published pack.
 
 ## Pedagogical model
@@ -841,22 +841,22 @@ questions, while remaining transparent and configurable. The initial algorithm
 can be a simple deterministic interval model; it should not pretend to infer
 mastery from opaque engagement metrics.
 
-## LeetLLM migration plan
+## Inference School migration plan
 
 ### Preserve one source of truth
 
 The following current ownership remains authoritative:
 
 - lesson prose: `Problems/*/README.md`;
-- problem behavior and judges: `Sources/LeetLLMCore`;
-- learner code: `Sources/LeetLLMExercises`;
-- canonical code: `Sources/LeetLLMSolutions`;
-- real Metal pipelines: `Sources/LeetLLMCore/Metal`; and
+- problem behavior and judges: `Sources/InferenceSchoolCore`;
+- learner code: `Sources/InferenceSchoolExercises`;
+- canonical code: `Sources/InferenceSchoolSolutions`;
+- real Metal pipelines: `Sources/InferenceSchoolCore/Metal`; and
 - inference reports and fixtures: the existing problem contracts.
 
 `Course.availableProblems` and the CLI's private `ProblemRunner` are current
 duplication points. The migration replaces hand-maintained UI metadata with the
-Markdown catalog and moves execution routing into `LeetLLMRuntime`, shared by
+Markdown catalog and moves execution routing into `InferenceSchoolRuntime`, shared by
 CLI and app.
 
 The migration order is:
@@ -864,7 +864,7 @@ The migration order is:
 1. Build the catalog from Markdown and prove it discovers all 48 readable lessons.
 2. Make `Course` a compatibility facade over a generated catalog snapshot, then
   remove the handwritten 47-entry metadata array.
-3. Extract the CLI's execution switch into `LeetLLMRuntime` and make both the
+3. Extract the CLI's execution switch into `InferenceSchoolRuntime` and make both the
   CLI and runner use it.
 4. Add a CI test that catalog IDs, supported runtime activities, source files,
   and judges agree.
@@ -872,7 +872,7 @@ The migration order is:
 The UI may not introduce a parallel problem registry while this migration is in
 progress. Generic inline snippets use the generic compiler evaluator and need no
 per-lesson runtime entry. Existing repository-backed problems use the shared
-LeetLLM runtime registry because their typed judges are intentionally code.
+Inference School runtime registry because their typed judges are intentionally code.
 
 ### Lighthouse vertical slices
 
@@ -971,7 +971,7 @@ Exit criteria:
 
 Deliver:
 
-- `LeetLessonKit`;
+- `InferenceSchoolLessonKit`;
 - recursive discovery from multiple roots;
 - optional front matter and fallback inference;
 - CommonMark/GFM, KaTeX, code, tables, and Mermaid rendering;
@@ -1090,7 +1090,7 @@ Exit criteria:
 
 Deliver:
 
-- `leetlesson` CLI;
+- `inference-school-lesson` CLI;
 - course-folder templates;
 - `.leetcourse` packaging and capability declarations;
 - signed first-party packs;
@@ -1268,7 +1268,7 @@ These are planning ranges, not commitments. Phase 0 can change them materially.
 
 ## Definition of the new standard
 
-LeetLLM Studio is ready to claim a higher teaching standard only when all of the
+Inference School Studio is ready to claim a higher teaching standard only when all of the
 following are true:
 
 - a learner can derive, implement, run, inspect, measure, and explain an operator

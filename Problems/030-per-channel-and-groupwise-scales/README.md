@@ -119,8 +119,8 @@ expected RMSE ordering for this controlled input. Error cases cover rank,
 nonpositive group size, and NaN.
 
 ```sh
-swift run leetllm check 030 --cpu
-swift run leetllm check 030 --solution
+swift run inference-school check 030 --cpu
+swift run inference-school check 030 --solution
 ```
 
 ## Performance model: bytes and arithmetic intensity
@@ -204,10 +204,10 @@ serialize payload plus scales, and let 032/033 consume exactly those dimensions.
 
 ## Canonical solution
 
-- [Validated groupwise format](../../Sources/LeetLLMCore/Problems/QuantizedWeightTypes.swift)
-- [Judge and comparison contract](../../Sources/LeetLLMCore/Problems/P030GroupwiseInt8.swift)
-- [Canonical CPU comparison](../../Sources/LeetLLMSolutions/P030GroupwiseInt8Solution.swift)
-- [Focused tests](../../Tests/LeetLLMCoreTests/P030GroupwiseInt8Tests.swift)
+- [Validated groupwise format](../../Sources/InferenceSchoolCore/Problems/QuantizedWeightTypes.swift)
+- [Judge and comparison contract](../../Sources/InferenceSchoolCore/Problems/P030GroupwiseInt8.swift)
+- [Canonical CPU comparison](../../Sources/InferenceSchoolSolutions/P030GroupwiseInt8Solution.swift)
+- [Focused tests](../../Tests/InferenceSchoolCoreTests/P030GroupwiseInt8Tests.swift)
 
 ## Completion checklist
 

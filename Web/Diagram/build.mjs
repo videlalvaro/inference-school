@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const projectDirectory = fileURLToPath(new URL(".", import.meta.url));
 const sourceDirectory = new URL("src/", import.meta.url);
-const outputDirectory = new URL("../../Sources/LeetLLMStudio/Resources/Diagram/", import.meta.url);
+const outputDirectory = new URL("../../Sources/InferenceSchoolStudio/Resources/Diagram/", import.meta.url);
 
 await rm(outputDirectory, { force: true, recursive: true });
 await mkdir(outputDirectory, { recursive: true });

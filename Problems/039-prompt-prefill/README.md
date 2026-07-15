@@ -179,8 +179,8 @@ missing cache writes, wrong model tensor shapes, non-finite model values, and
 unstable fingerprints.
 
 ```sh
-swift run leetllm check 039 --cpu
-swift run leetllm check 039 --solution
+swift run inference-school check 039 --cpu
+swift run inference-school check 039 --solution
 ```
 
 ## Performance model: FLOPs, bytes, cache, and allocation
@@ -289,13 +289,13 @@ serializes these named captures with the model fingerprint.
 
 ## Canonical solution
 
-- [Shared model, fixture, fingerprint, and work types](../../Sources/LeetLLMCore/Problems/MiniDecoderTypes.swift)
-- [Prefill contract, Double oracle, and judge](../../Sources/LeetLLMCore/Problems/P039PromptPrefill.swift)
-- [Learner starter](../../Sources/LeetLLMExercises/P039PromptPrefillExercise.swift)
-- [Canonical prefill wrapper](../../Sources/LeetLLMSolutions/P039PromptPrefillSolution.swift)
-- [Shared canonical CPU engine](../../Sources/LeetLLMSolutions/MiniDecoderCPUEngine.swift)
-- [Focused tests](../../Tests/LeetLLMCoreTests/P039PromptPrefillTests.swift)
-- [Contiguous cache contract](../../Sources/LeetLLMCore/Problems/KVCacheTypes.swift)
+- [Shared model, fixture, fingerprint, and work types](../../Sources/InferenceSchoolCore/Problems/MiniDecoderTypes.swift)
+- [Prefill contract, Double oracle, and judge](../../Sources/InferenceSchoolCore/Problems/P039PromptPrefill.swift)
+- [Learner starter](../../Sources/InferenceSchoolExercises/P039PromptPrefillExercise.swift)
+- [Canonical prefill wrapper](../../Sources/InferenceSchoolSolutions/P039PromptPrefillSolution.swift)
+- [Shared canonical CPU engine](../../Sources/InferenceSchoolSolutions/MiniDecoderCPUEngine.swift)
+- [Focused tests](../../Tests/InferenceSchoolCoreTests/P039PromptPrefillTests.swift)
+- [Contiguous cache contract](../../Sources/InferenceSchoolCore/Problems/KVCacheTypes.swift)
 
 ## Completion checklist
 

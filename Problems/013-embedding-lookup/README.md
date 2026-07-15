@@ -118,9 +118,9 @@ The judge does not call the canonical implementation.
 Run:
 
 ```sh
-swift run leetllm check 013 --cpu
-swift run leetllm check 013 --metal
-swift run leetllm check 013 --solution
+swift run inference-school check 013 --cpu
+swift run inference-school check 013 --metal
+swift run inference-school check 013 --solution
 ```
 
 ## Performance model
@@ -144,7 +144,7 @@ loops over `D`. The host ends the lookup encoder before starting unembedding,
 so the second dispatch observes the gathered buffer. This baseline favors a
 visible mapping over a tiled GEMM; Problem 005 supplies the optimization path.
 
-See [P013Embedding.metal](../../Sources/LeetLLMSolutions/Metal/P013Embedding.metal).
+See [P013Embedding.metal](../../Sources/InferenceSchoolSolutions/Metal/P013Embedding.metal).
 
 ## Implementation checkpoints
 
@@ -200,9 +200,9 @@ decode, but the equation and tied storage remain the same.
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P013EmbeddingSolution.swift)
-- [Metal solution](../../Sources/LeetLLMSolutions/Metal/P013Embedding.metal)
-- [Shared contract and judge](../../Sources/LeetLLMCore/Problems/P013Embedding.swift)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P013EmbeddingSolution.swift)
+- [Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P013Embedding.metal)
+- [Shared contract and judge](../../Sources/InferenceSchoolCore/Problems/P013Embedding.swift)
 
 ## Completion checklist
 

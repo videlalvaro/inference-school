@@ -1,7 +1,7 @@
 .build/
 Book/build/
 dist/*
-!dist/LeetLLM-Companion.pdf
+!dist/Inference-School-Companion.pdf
 .swiftpm/
 DerivedData/
 xcuserdata/

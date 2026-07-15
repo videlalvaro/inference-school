@@ -125,7 +125,7 @@ the baseline exposes a specific cost.
 
 ### Canonical answers are inspectable but separate
 
-Answers live in `LeetLLMSolutions`; learner edits live in `LeetLLMExercises`.
+Answers live in `InferenceSchoolSolutions`; learner edits live in `InferenceSchoolExercises`.
 The CLI checks learner code by default and checks the answer only with
 `--solution`.
 

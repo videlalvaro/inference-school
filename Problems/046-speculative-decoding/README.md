@@ -110,7 +110,7 @@ flowchart TD
 ```
 
 ```sh
-swift run leetllm check 046 --cpu --solution
+swift run inference-school check 046 --cpu --solution
 ```
 
 ## Correctness method
@@ -205,10 +205,10 @@ The providers can be backed by two decoder models sharing token IDs and stop rul
 
 ## Canonical solution
 
-- [Distribution math, traces, cost model, and judge](../../Sources/LeetLLMCore/Problems/P046SpeculativeDecoding.swift)
-- [Learner implementation](../../Sources/LeetLLMExercises/P046SpeculativeDecodingExercise.swift)
-- [Canonical implementation](../../Sources/LeetLLMSolutions/P046SpeculativeDecodingSolution.swift)
-- [Focused tests](../../Tests/LeetLLMCoreTests/P046SpeculativeDecodingTests.swift)
+- [Distribution math, traces, cost model, and judge](../../Sources/InferenceSchoolCore/Problems/P046SpeculativeDecoding.swift)
+- [Learner implementation](../../Sources/InferenceSchoolExercises/P046SpeculativeDecodingExercise.swift)
+- [Canonical implementation](../../Sources/InferenceSchoolSolutions/P046SpeculativeDecodingSolution.swift)
+- [Focused tests](../../Tests/InferenceSchoolCoreTests/P046SpeculativeDecodingTests.swift)
 
 ## Completion checklist
 

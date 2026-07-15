@@ -13,7 +13,7 @@ pull request.
 When this repository is public and private vulnerability reporting is enabled,
 use the **Report a vulnerability** button on the repository's Security page:
 
-https://github.com/videlalvaro/leet-llm/security
+https://github.com/videlalvaro/inference-school/security
 
 If that button is unavailable, contact the repository owner through the GitHub
 profile at https://github.com/videlalvaro and request a private reporting
@@ -27,11 +27,11 @@ timeline are agreed.
 
 ## Execution boundary
 
-LeetLLM intentionally compiles and runs learner-authored Swift and Metal code.
+Inference School intentionally compiles and runs learner-authored Swift and Metal code.
 The packaged Studio uses App Sandbox and a user-selected workspace. Its host
 signature includes the client entitlement required to run its bundled WebKit
 diagram and editor views. Built-in checks do not upload learner code, but the
 packaged runner currently inherits the Studio sandbox, including that
-entitlement. Command-line checks are not sandboxed by LeetLLM and run with the
+entitlement. Command-line checks are not sandboxed by Inference School and run with the
 permissions of the terminal process that launches them. Only run code and
 course content you trust.

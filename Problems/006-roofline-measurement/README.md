@@ -162,7 +162,7 @@ different implementation boundaries.
 ## CPU reference path
 
 Open
-[P006RooflineExercise.swift](../../Sources/LeetLLMExercises/P006RooflineExercise.swift).
+[P006RooflineExercise.swift](../../Sources/InferenceSchoolExercises/P006RooflineExercise.swift).
 
 Implement these four steps:
 
@@ -176,7 +176,7 @@ classify by comparing bandwidthCeiling with peakCompute
 Run:
 
 ```sh
-swift run leetllm check 006 --cpu
+swift run inference-school check 006 --cpu
 ```
 
 The judge uses memory-bound, compute-bound, and exact-ridge fixtures. Input
@@ -269,9 +269,9 @@ only arithmetic. A later profiler can isolate GPU timestamps and counters.
 Commands:
 
 ```sh
-swift run leetllm check 006
-swift run leetllm check 006 --solution
-swift run -c release leetllm benchmark 006 \
+swift run inference-school check 006
+swift run inference-school check 006 --solution
+swift run -c release inference-school benchmark 006 \
   --m 64 --k 64 --n 64 --iterations 20 \
   --peak-gflops 1000 --bandwidth-gbps 100
 ```
@@ -363,11 +363,11 @@ the modeled limiter; exact equality is the ridge case.
 <summary>Canonical check</summary>
 
 ```sh
-swift run leetllm check 006 --solution
+swift run inference-school check 006 --solution
 ```
 
 The canonical implementation delegates to `RooflineModel.predict`. The model,
-measurement, benchmark, and report types are in `LeetLLMCore` for reuse.
+measurement, benchmark, and report types are in `InferenceSchoolCore` for reuse.
 
 </details>
 

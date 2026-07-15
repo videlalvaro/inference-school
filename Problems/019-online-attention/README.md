@@ -117,9 +117,9 @@ decode offsets. It checks a mismatched value shape and rejects a last-value-only
 algorithm. Tolerance is `5e-5 + 1e-4*abs(expected)`.
 
 ```sh
-swift run leetllm check 019 --cpu
-swift run leetllm check 019 --metal
-swift run leetllm check 019 --solution
+swift run inference-school check 019 --cpu
+swift run inference-school check 019 --metal
+swift run inference-school check 019 --solution
 ```
 
 ## Performance model
@@ -144,7 +144,7 @@ The kernel uses no barriers because all recurrence state belongs to one thread.
 That choice is easy to verify but underuses SIMD lanes. Problem 020 distributes
 score-tile and output work across a threadgroup while preserving the recurrence.
 
-See [P019OnlineAttention.metal](../../Sources/LeetLLMSolutions/Metal/P019OnlineAttention.metal).
+See [P019OnlineAttention.metal](../../Sources/InferenceSchoolSolutions/Metal/P019OnlineAttention.metal).
 
 ## Implementation checkpoints
 
@@ -196,9 +196,9 @@ checks and substitution.
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P019OnlineAttentionSolution.swift)
-- [Metal solution](../../Sources/LeetLLMSolutions/Metal/P019OnlineAttention.metal)
-- [Judge](../../Sources/LeetLLMCore/Problems/P019OnlineAttention.swift)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P019OnlineAttentionSolution.swift)
+- [Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P019OnlineAttention.metal)
+- [Judge](../../Sources/InferenceSchoolCore/Problems/P019OnlineAttention.swift)
 
 ## Completion checklist
 

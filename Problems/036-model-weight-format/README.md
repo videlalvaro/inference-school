@@ -8,7 +8,7 @@ metadata as trusted can turn one corrupt length or offset into an out-of-bounds
 read, overlapping tensors, a silent transpose, or a model built with incompatible
 head counts.
 
-This lesson defines `LeetWeight`, a small educational container used by later
+This lesson defines `InferenceWeight`, a small educational container used by later
 mini-model fixtures. It resembles the broad idea of a metadata header followed
 by raw tensor bytes, but it is not SafeTensors, GGUF, or compatible with either.
 The narrow format makes every trust decision visible.
@@ -177,8 +177,8 @@ show that a structurally valid archive can still be rejected by the model loader
 for a wrong query-weight shape.
 
 ```sh
-swift run leetllm check 036 --cpu
-swift run leetllm check 036 --solution
+swift run inference-school check 036 --cpu
+swift run inference-school check 036 --solution
 ```
 
 ## Performance model: bytes, work, and allocation
@@ -279,11 +279,11 @@ tests construct bytes the encoder would never emit.
 
 ## Canonical solution
 
-- [Format types, fixture encoder, block loader, and corruption judge](../../Sources/LeetLLMCore/Problems/P036WeightContainer.swift)
-- [Learner parser starter](../../Sources/LeetLLMExercises/P036WeightContainerExercise.swift)
-- [Canonical bounds-checked parser](../../Sources/LeetLLMSolutions/P036WeightContainerSolution.swift)
-- [Parser and loader tests](../../Tests/LeetLLMCoreTests/P036WeightContainerTests.swift)
-- [Problem 035 block contract](../../Sources/LeetLLMCore/Problems/P035DecoderBlock.swift)
+- [Format types, fixture encoder, block loader, and corruption judge](../../Sources/InferenceSchoolCore/Problems/P036WeightContainer.swift)
+- [Learner parser starter](../../Sources/InferenceSchoolExercises/P036WeightContainerExercise.swift)
+- [Canonical bounds-checked parser](../../Sources/InferenceSchoolSolutions/P036WeightContainerSolution.swift)
+- [Parser and loader tests](../../Tests/InferenceSchoolCoreTests/P036WeightContainerTests.swift)
+- [Problem 035 block contract](../../Sources/InferenceSchoolCore/Problems/P035DecoderBlock.swift)
 
 ## Completion checklist
 

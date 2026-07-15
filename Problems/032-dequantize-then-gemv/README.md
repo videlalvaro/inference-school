@@ -115,8 +115,8 @@ short vector must throw. A focused wrong implementation that returns correct
 values but reports zero temporary bytes fails.
 
 ```sh
-swift run leetllm check 032 --cpu
-swift run leetllm check 032 --solution
+swift run inference-school check 032 --cpu
+swift run inference-school check 032 --solution
 ```
 
 ## Performance model: bytes and arithmetic intensity
@@ -199,10 +199,10 @@ the full-weight temporary.
 
 ## Canonical solution
 
-- [Result contract and independent judge](../../Sources/LeetLLMCore/Problems/P032DequantizeThenGEMV.swift)
-- [Canonical staged implementation](../../Sources/LeetLLMSolutions/P032DequantizeThenGEMVSolution.swift)
-- [Shared Q4 format](../../Sources/LeetLLMCore/Problems/QuantizedWeightTypes.swift)
-- [Focused tests](../../Tests/LeetLLMCoreTests/P032DequantizeThenGEMVTests.swift)
+- [Result contract and independent judge](../../Sources/InferenceSchoolCore/Problems/P032DequantizeThenGEMV.swift)
+- [Canonical staged implementation](../../Sources/InferenceSchoolSolutions/P032DequantizeThenGEMVSolution.swift)
+- [Shared Q4 format](../../Sources/InferenceSchoolCore/Problems/QuantizedWeightTypes.swift)
+- [Focused tests](../../Tests/InferenceSchoolCoreTests/P032DequantizeThenGEMVTests.swift)
 
 ## Completion checklist
 

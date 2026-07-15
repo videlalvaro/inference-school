@@ -143,8 +143,8 @@ and non-finite hidden states. Tolerance is `2e-5 + 5e-5*abs(expected)`. A starte
 that returns correctly shaped zeros fails value cases.
 
 ```sh
-swift run leetllm check 014 --cpu
-swift run leetllm check 014 --solution
+swift run inference-school check 014 --cpu
+swift run inference-school check 014 --solution
 ```
 
 ## Performance model
@@ -224,9 +224,9 @@ rank-three tensors directly. Later KV-cache problems store K and V using
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P014QKVProjectionSolution.swift)
-- [Contract and judge](../../Sources/LeetLLMCore/Problems/P014QKVProjection.swift)
-- [Tensor view implementation](../../Sources/LeetLLMCore/Problems/P002TensorStorage.swift)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P014QKVProjectionSolution.swift)
+- [Contract and judge](../../Sources/InferenceSchoolCore/Problems/P014QKVProjection.swift)
+- [Tensor view implementation](../../Sources/InferenceSchoolCore/Problems/P002TensorStorage.swift)
 
 ## Completion checklist
 

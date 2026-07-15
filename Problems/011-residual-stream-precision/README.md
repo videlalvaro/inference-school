@@ -144,8 +144,8 @@ The dedicated comparison test asserts:
 Run:
 
 ```sh
-swift run leetllm check 011 --cpu
-swift run leetllm check 011 --solution
+swift run inference-school check 011 --cpu
+swift run inference-school check 011 --solution
 ```
 
 `check 011 --metal` is rejected because the problem has no Metal stage.
@@ -248,7 +248,7 @@ does not change this addition policy.
 ## Canonical solution
 
 The independent implementation and comparison helper are in
-[P011ResidualPrecisionSolution.swift](../../Sources/LeetLLMSolutions/P011ResidualPrecisionSolution.swift).
+[P011ResidualPrecisionSolution.swift](../../Sources/InferenceSchoolSolutions/P011ResidualPrecisionSolution.swift).
 
 ## Completion checklist
 

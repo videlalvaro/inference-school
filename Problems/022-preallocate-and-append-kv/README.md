@@ -104,8 +104,8 @@ checks two fixed 24-float allocations and their stable addresses, and requires
 errors for capacity overflow, a logical-position gap, and a shape mismatch.
 
 ```sh
-swift run leetllm check 022 --cpu
-swift run leetllm check 022 --solution
+swift run inference-school check 022 --cpu
+swift run inference-school check 022 --solution
 ```
 
 ## Performance, bandwidth, and allocation model
@@ -182,10 +182,10 @@ context is known and reserving the full budget is acceptable.
 
 ## Canonical solution
 
-- [Shared cache contracts](../../Sources/LeetLLMCore/Problems/KVCacheTypes.swift)
-- [Contiguous implementation](../../Sources/LeetLLMSolutions/P022ContiguousKVCacheSolution.swift)
-- [Independent judge](../../Sources/LeetLLMCore/Problems/P022ContiguousKVCache.swift)
-- [Focused tests](../../Tests/LeetLLMCoreTests/P022ContiguousKVCacheTests.swift)
+- [Shared cache contracts](../../Sources/InferenceSchoolCore/Problems/KVCacheTypes.swift)
+- [Contiguous implementation](../../Sources/InferenceSchoolSolutions/P022ContiguousKVCacheSolution.swift)
+- [Independent judge](../../Sources/InferenceSchoolCore/Problems/P022ContiguousKVCache.swift)
+- [Focused tests](../../Tests/InferenceSchoolCoreTests/P022ContiguousKVCacheTests.swift)
 
 ## Completion checklist
 

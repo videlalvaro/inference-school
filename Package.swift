@@ -3,20 +3,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "LeetLLM",
+    name: "InferenceSchool",
     platforms: [
         .macOS(.v15),
     ],
     products: [
-        .library(name: "LeetLLMCore", targets: ["LeetLLMCore"]),
-        .library(name: "LeetLessonKit", targets: ["LeetLessonKit"]),
-        .library(name: "LeetRunnerProtocol", targets: ["LeetRunnerProtocol"]),
-        .library(name: "LeetLLMRuntime", targets: ["LeetLLMRuntime"]),
-        .library(name: "LeetRunnerClient", targets: ["LeetRunnerClient"]),
-        .library(name: "LeetWorkspaceKit", targets: ["LeetWorkspaceKit"]),
-        .executable(name: "leetllm", targets: ["LeetLLMCLI"]),
-        .executable(name: "leetllm-runner", targets: ["LeetLLMRunner"]),
-        .executable(name: "leetllm-studio", targets: ["LeetLLMStudio"]),
+        .library(name: "InferenceSchoolCore", targets: ["InferenceSchoolCore"]),
+        .library(name: "InferenceSchoolLessonKit", targets: ["InferenceSchoolLessonKit"]),
+        .library(name: "InferenceSchoolRunnerProtocol", targets: ["InferenceSchoolRunnerProtocol"]),
+        .library(name: "InferenceSchoolRuntime", targets: ["InferenceSchoolRuntime"]),
+        .library(name: "InferenceSchoolRunnerClient", targets: ["InferenceSchoolRunnerClient"]),
+        .library(name: "InferenceSchoolWorkspaceKit", targets: ["InferenceSchoolWorkspaceKit"]),
+        .executable(name: "inference-school", targets: ["InferenceSchoolCLI"]),
+        .executable(name: "inference-school-runner", targets: ["InferenceSchoolRunner"]),
+        .executable(name: "inference-school-studio", targets: ["InferenceSchoolStudio"]),
     ],
     dependencies: [
         .package(
@@ -29,97 +29,97 @@ let package = Package(
         ),
     ],
     targets: [
-        .target(name: "LeetLLMCore"),
-        .target(name: "LeetRunnerProtocol"),
+        .target(name: "InferenceSchoolCore"),
+        .target(name: "InferenceSchoolRunnerProtocol"),
         .target(
-            name: "LeetRunnerClient",
-            dependencies: ["LeetRunnerProtocol"]
+            name: "InferenceSchoolRunnerClient",
+            dependencies: ["InferenceSchoolRunnerProtocol"]
         ),
-        .target(name: "LeetWorkspaceKit"),
+        .target(name: "InferenceSchoolWorkspaceKit"),
         .target(
-            name: "LeetLessonKit",
+            name: "InferenceSchoolLessonKit",
             dependencies: [
                 .product(name: "Yams", package: "Yams"),
             ]
         ),
         .target(
-            name: "LeetLLMExercises",
-            dependencies: ["LeetLLMCore"],
+            name: "InferenceSchoolExercises",
+            dependencies: ["InferenceSchoolCore"],
             resources: [.copy("Metal")]
         ),
         .target(
-            name: "LeetLLMSolutions",
-            dependencies: ["LeetLLMCore"],
+            name: "InferenceSchoolSolutions",
+            dependencies: ["InferenceSchoolCore"],
             resources: [.copy("Metal")]
         ),
         .target(
-            name: "LeetLLMRuntime",
+            name: "InferenceSchoolRuntime",
             dependencies: [
-                "LeetLLMCore",
-                "LeetLLMExercises",
-                "LeetLLMSolutions",
-                "LeetRunnerProtocol",
+                "InferenceSchoolCore",
+                "InferenceSchoolExercises",
+                "InferenceSchoolSolutions",
+                "InferenceSchoolRunnerProtocol",
             ],
-            path: "Sources/LeetLLMCLI"
+            path: "Sources/InferenceSchoolCLI"
         ),
         .executableTarget(
-            name: "LeetLLMCLI",
-            dependencies: ["LeetLLMRuntime"],
-            path: "Sources/LeetLLMCLIEntry"
+            name: "InferenceSchoolCLI",
+            dependencies: ["InferenceSchoolRuntime"],
+            path: "Sources/InferenceSchoolCLIEntry"
         ),
         .executableTarget(
-            name: "LeetLLMRunner",
-            dependencies: ["LeetLLMRuntime", "LeetRunnerProtocol"],
+            name: "InferenceSchoolRunner",
+            dependencies: ["InferenceSchoolRuntime", "InferenceSchoolRunnerProtocol"],
             linkerSettings: [.linkedFramework("Security")]
         ),
         .executableTarget(
-            name: "LeetLLMStudio",
+            name: "InferenceSchoolStudio",
             dependencies: [
-                "LeetLessonKit",
-                "LeetLLMRuntime",
-                "LeetRunnerClient",
-                "LeetRunnerProtocol",
-                "LeetWorkspaceKit",
+                "InferenceSchoolLessonKit",
+                "InferenceSchoolRuntime",
+                "InferenceSchoolRunnerClient",
+                "InferenceSchoolRunnerProtocol",
+                "InferenceSchoolWorkspaceKit",
                 .product(name: "Textual", package: "textual"),
             ],
             resources: [.copy("Resources")],
             linkerSettings: [.linkedFramework("Security")]
         ),
         .testTarget(
-            name: "LeetLessonKitTests",
+            name: "InferenceSchoolLessonKitTests",
             dependencies: [
-                "LeetLessonKit",
+                "InferenceSchoolLessonKit",
                 .product(name: "Textual", package: "textual"),
             ]
         ),
         .testTarget(
-            name: "LeetLLMRuntimeTests",
+            name: "InferenceSchoolRuntimeTests",
             dependencies: [
-                "LeetLessonKit",
-                "LeetLLMCore",
-                "LeetLLMRuntime",
-                "LeetRunnerProtocol",
+                "InferenceSchoolLessonKit",
+                "InferenceSchoolCore",
+                "InferenceSchoolRuntime",
+                "InferenceSchoolRunnerProtocol",
             ]
         ),
         .testTarget(
-            name: "LeetWorkspaceKitTests",
-            dependencies: ["LeetWorkspaceKit"]
+            name: "InferenceSchoolWorkspaceKitTests",
+            dependencies: ["InferenceSchoolWorkspaceKit"]
         ),
         .testTarget(
-            name: "LeetRunnerClientTests",
+            name: "InferenceSchoolRunnerClientTests",
             dependencies: [
-                "LeetRunnerClient",
-                "LeetRunnerProtocol",
-                "LeetWorkspaceKit",
+                "InferenceSchoolRunnerClient",
+                "InferenceSchoolRunnerProtocol",
+                "InferenceSchoolWorkspaceKit",
             ]
         ),
         .testTarget(
-            name: "LeetLLMCoreTests",
-            dependencies: ["LeetLLMCore", "LeetLLMSolutions"]
+            name: "InferenceSchoolCoreTests",
+            dependencies: ["InferenceSchoolCore", "InferenceSchoolSolutions"]
         ),
         .testTarget(
-            name: "LeetLLMStudioTests",
-            dependencies: ["LeetLLMStudio", "LeetLessonKit"]
+            name: "InferenceSchoolStudioTests",
+            dependencies: ["InferenceSchoolStudio", "InferenceSchoolLessonKit"]
         ),
     ]
 )

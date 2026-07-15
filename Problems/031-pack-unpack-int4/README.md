@@ -125,8 +125,8 @@ Error fixtures reject integer `8`, missing scales, and nonzero odd padding. A
 test implements high-nibble-first packing and confirms the shared judge fails it.
 
 ```sh
-swift run leetllm check 031 --cpu
-swift run leetllm check 031 --solution
+swift run inference-school check 031 --cpu
+swift run inference-school check 031 --solution
 ```
 
 ## Performance model: bytes and arithmetic intensity
@@ -206,11 +206,11 @@ and format code. This is the interchange contract used by 032-034.
 
 ## Canonical solution
 
-- [Q4 format definition and loader validation](../../Sources/LeetLLMCore/Problems/QuantizedWeightTypes.swift)
-- [Byte-exact judge](../../Sources/LeetLLMCore/Problems/P031PackQ4.swift)
-- [Canonical converter](../../Sources/LeetLLMSolutions/P031PackQ4Solution.swift)
-- [Exact-format tests](../../Tests/LeetLLMCoreTests/P031PackQ4Tests.swift)
-- [MSL consumer introduced in 033](../../Sources/LeetLLMSolutions/Metal/P033FusedQ4GEMV.metal)
+- [Q4 format definition and loader validation](../../Sources/InferenceSchoolCore/Problems/QuantizedWeightTypes.swift)
+- [Byte-exact judge](../../Sources/InferenceSchoolCore/Problems/P031PackQ4.swift)
+- [Canonical converter](../../Sources/InferenceSchoolSolutions/P031PackQ4Solution.swift)
+- [Exact-format tests](../../Tests/InferenceSchoolCoreTests/P031PackQ4Tests.swift)
+- [MSL consumer introduced in 033](../../Sources/InferenceSchoolSolutions/Metal/P033FusedQ4GEMV.metal)
 
 ## Completion checklist
 

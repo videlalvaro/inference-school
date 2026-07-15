@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleDisplayName</key>
-    <string>LeetLLM Studio</string>
+    <string>Inference School Studio</string>
     <key>CFBundleExecutable</key>
-    <string>leetllm-studio</string>
+    <string>inference-school-studio</string>
     <key>CFBundleIdentifier</key>
-    <string>dev.leetllm.studio</string>
+    <string>dev.inferenceschool.studio</string>
     <key>CFBundleName</key>
-    <string>LeetLLM Studio</string>
+    <string>Inference School Studio</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>

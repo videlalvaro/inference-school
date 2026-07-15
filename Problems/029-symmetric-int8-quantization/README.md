@@ -132,8 +132,8 @@ and finite scale `1`; a non-finite fixture must throw. Tests also construct a
 format directly and verify that `-128` is invalid.
 
 ```sh
-swift run leetllm check 029 --cpu
-swift run leetllm check 029 --solution
+swift run inference-school check 029 --cpu
+swift run inference-school check 029 --solution
 ```
 
 ## Performance model: bytes and arithmetic intensity
@@ -207,10 +207,10 @@ when reconstruction occurs, while retaining these validation principles.
 
 ## Canonical solution
 
-- [Shared weight formats](../../Sources/LeetLLMCore/Problems/QuantizedWeightTypes.swift)
-- [Judge and result contract](../../Sources/LeetLLMCore/Problems/P029SymmetricInt8.swift)
-- [Canonical CPU implementation](../../Sources/LeetLLMSolutions/P029SymmetricInt8Solution.swift)
-- [Focused tests](../../Tests/LeetLLMCoreTests/P029SymmetricInt8Tests.swift)
+- [Shared weight formats](../../Sources/InferenceSchoolCore/Problems/QuantizedWeightTypes.swift)
+- [Judge and result contract](../../Sources/InferenceSchoolCore/Problems/P029SymmetricInt8.swift)
+- [Canonical CPU implementation](../../Sources/InferenceSchoolSolutions/P029SymmetricInt8Solution.swift)
+- [Focused tests](../../Tests/InferenceSchoolCoreTests/P029SymmetricInt8Tests.swift)
 
 ## Completion checklist
 

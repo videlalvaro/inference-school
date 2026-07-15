@@ -1,8 +1,8 @@
 # Start Here
 
-LeetLLM is a hands-on course for building a small decoder-only language-model
+Inference School is a hands-on course for building a small decoder-only language-model
 inference engine from individual Swift and Metal operators. The primary
-learning environment is the native LeetLLM Studio app. The same lessons and
+learning environment is the native Inference School Studio app. The same lessons and
 checks also remain available from the command line.
 
 Begin with [Problem 000: Start Here](../Problems/000-start-here/README.md). It
@@ -23,17 +23,17 @@ swift --version
 xcrun --find metal
 ```
 
-## Launch LeetLLM Studio
+## Launch Inference School Studio
 
 Package the debug app and open it:
 
 ```sh
 scripts/package-studio.sh debug
-open "dist/LeetLLM Studio.app"
+open "dist/Inference School Studio.app"
 ```
 
 The package script builds the Studio and its separate runner, then bundles the
-course sources under `dist/LeetLLM Studio.app`. Re-run it after changing app
+course sources under `dist/Inference School Studio.app`. Re-run it after changing app
 code or bundled course content. The generated `dist/` directory is local build
 output and should not be committed.
 
@@ -44,7 +44,7 @@ reader-only, so it intentionally shows no editor or Run button.
 
 The first runnable lesson asks you to choose or create a dedicated build folder
 through the macOS folder picker. The Studio stores editable course sources,
-compiler output, and generated learner executables under `LeetLLM Workspaces`
+compiler output, and generated learner executables under `Inference School Workspaces`
 inside that folder. The saved macOS permission is reused on later launches and
 can be replaced or forgotten from the Build Folder toolbar menu.
 
@@ -75,8 +75,8 @@ the permissions of the terminal process that launches them.
 The command line uses the same course sources and judges. Verify the harness:
 
 ```sh
-swift run leetllm learn 001
-swift run leetllm check 001 --solution
+swift run inference-school learn 001
+swift run inference-school check 001 --solution
 ```
 
 The solution check should report `5/5` for CPU and Metal. It verifies the course
@@ -98,11 +98,11 @@ performance prediction.
 ### 2. Implement the readable version
 
 Edit
-[P001VectorDotExercise.swift](../Sources/LeetLLMExercises/P001VectorDotExercise.swift),
+[P001VectorDotExercise.swift](../Sources/InferenceSchoolExercises/P001VectorDotExercise.swift),
 then run:
 
 ```sh
-swift run leetllm check 001 --cpu
+swift run inference-school check 001 --cpu
 ```
 
 Keep working until it reports `CPU: 5/5 cases`. This CPU implementation is the
@@ -111,11 +111,11 @@ meaning of the operation against which the GPU version is judged.
 ### 3. Map it to the GPU
 
 Read the Metal mapping and barrier sections in the tutorial. Edit
-[P001VectorDot.metal](../Sources/LeetLLMExercises/Metal/P001VectorDot.metal),
+[P001VectorDot.metal](../Sources/InferenceSchoolExercises/Metal/P001VectorDot.metal),
 then run:
 
 ```sh
-swift run leetllm check 001 --metal
+swift run inference-school check 001 --metal
 ```
 
 Do not stop at a passing kernel. Draw the reduction tree and account for the
@@ -126,9 +126,9 @@ bounds check, memory spaces, and every barrier.
 Run the tutorial's size sweep in a release build. For example:
 
 ```sh
-swift run -c release leetllm benchmark 001 --size 64 --iterations 100
-swift run -c release leetllm benchmark 001 --size 4096 --iterations 100
-swift run -c release leetllm benchmark 001 --size 1048576 --iterations 20
+swift run -c release inference-school benchmark 001 --size 64 --iterations 100
+swift run -c release inference-school benchmark 001 --size 4096 --iterations 100
+swift run -c release inference-school benchmark 001 --size 1048576 --iterations 20
 ```
 
 Compare the results with your prediction. Explain the crossover using fixed GPU
@@ -158,18 +158,18 @@ connected educational capstone with a real Metal parity slice.
 Discover their paths and checks with:
 
 ```sh
-swift run leetllm list
-swift run leetllm learn 002
-swift run leetllm show 006
-swift run leetllm learn 047
+swift run inference-school list
+swift run inference-school learn 002
+swift run inference-school show 006
+swift run inference-school learn 047
 ```
 
 Run the final evidence commands in a release build:
 
 ```sh
-swift run -c release leetllm benchmark 043 --tokens 32 --iterations 20
-swift run -c release leetllm profile 044 --prompt-tokens 16 --trials 7
-swift run -c release leetllm capstone --prompt "ab c." --max-tokens 4
+swift run -c release inference-school benchmark 043 --tokens 32 --iterations 20
+swift run -c release inference-school profile 044 --prompt-tokens 16 --trials 7
+swift run -c release inference-school capstone --prompt "ab c." --max-tokens 4
 ```
 
 The capstone model is a seven-token deterministic educational fixture, not a

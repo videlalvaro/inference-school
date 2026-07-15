@@ -157,7 +157,7 @@ Write down this prediction before benchmarking:
 ## CPU reference path
 
 Open
-[P001VectorDotExercise.swift](../../Sources/LeetLLMExercises/P001VectorDotExercise.swift).
+[P001VectorDotExercise.swift](../../Sources/InferenceSchoolExercises/P001VectorDotExercise.swift).
 
 Implement this algorithm without using an acceleration framework:
 
@@ -175,7 +175,7 @@ implementations are checked against this behavior.
 Run only the CPU stage:
 
 ```sh
-swift run leetllm check 001 --cpu
+swift run inference-school check 001 --cpu
 ```
 
 The judge includes:
@@ -277,10 +277,10 @@ point and behavior is invalid.
 ## Implementation checkpoints
 
 Open
-[P001VectorDot.metal](../../Sources/LeetLLMExercises/Metal/P001VectorDot.metal).
+[P001VectorDot.metal](../../Sources/InferenceSchoolExercises/Metal/P001VectorDot.metal).
 
 The host-side command setup is already provided in
-[MetalVectorDotPipeline.swift](../../Sources/LeetLLMCore/Metal/MetalVectorDotPipeline.swift).
+[MetalVectorDotPipeline.swift](../../Sources/InferenceSchoolCore/Metal/MetalVectorDotPipeline.swift).
 Read it before filling in the kernel. Identify where each buffer index, the
 element count, the number of groups, and the 256-thread width are encoded.
 
@@ -302,13 +302,13 @@ all threads in the group.
 Run only the Metal stage:
 
 ```sh
-swift run leetllm check 001 --metal
+swift run inference-school check 001 --metal
 ```
 
 Then run both stages:
 
 ```sh
-swift run leetllm check 001
+swift run inference-school check 001
 ```
 
 ## Hints
@@ -335,18 +335,18 @@ At each stride, only local indices smaller than the stride add one partner at
 To prove the judge and host path independently of your edits, run:
 
 ```sh
-swift run leetllm check 001 --solution
+swift run inference-school check 001 --solution
 ```
 
-The canonical source is in the `LeetLLMSolutions` module.
+The canonical source is in the `InferenceSchoolSolutions` module.
 
 </details>
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P001VectorDotSolution.swift)
-- [Metal solution](../../Sources/LeetLLMSolutions/Metal/P001VectorDot.metal)
-- [Shared judge](../../Sources/LeetLLMCore/Problems/P001VectorDot.swift)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P001VectorDotSolution.swift)
+- [Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P001VectorDot.metal)
+- [Shared judge](../../Sources/InferenceSchoolCore/Problems/P001VectorDot.swift)
 
 Read the canonical implementation only after recording what blocked your own
 attempt. Then compare reduction order, bounds handling, and synchronization,
@@ -359,7 +359,7 @@ not just source syntax.
 Use a release build:
 
 ```sh
-swift run -c release leetllm benchmark 001
+swift run -c release inference-school benchmark 001
 ```
 
 The current benchmark measures the canonical implementations so that exercise
@@ -399,9 +399,9 @@ Largest cost not isolated by this benchmark:
 Run at least these sizes with enough iterations for stable medians:
 
 ```sh
-swift run -c release leetllm benchmark 001 --size 64 --iterations 100
-swift run -c release leetllm benchmark 001 --size 4096 --iterations 100
-swift run -c release leetllm benchmark 001 --size 1048576 --iterations 20
+swift run -c release inference-school benchmark 001 --size 64 --iterations 100
+swift run -c release inference-school benchmark 001 --size 4096 --iterations 100
+swift run -c release inference-school benchmark 001 --size 1048576 --iterations 20
 ```
 
 Before running, predict the curve. After running, answer:

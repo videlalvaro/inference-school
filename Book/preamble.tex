@@ -10,17 +10,17 @@
 
 \usepackage{microtype}
 \usepackage{xcolor}
-\definecolor{LeetInk}{HTML}{17212B}
-\definecolor{LeetBlue}{HTML}{2E668F}
-\definecolor{LeetBlueSoft}{HTML}{E8F2F8}
-\definecolor{LeetGreen}{HTML}{28705D}
-\definecolor{LeetGreenSoft}{HTML}{E9F4EF}
-\definecolor{LeetGold}{HTML}{9A6915}
-\definecolor{LeetGoldSoft}{HTML}{FBF2DE}
-\definecolor{LeetRed}{HTML}{A5453F}
-\definecolor{LeetRedSoft}{HTML}{FBEDEC}
-\definecolor{LeetCode}{HTML}{F4F6F7}
-\definecolor{LeetRule}{HTML}{C7D1D8}
+\definecolor{InferenceInk}{HTML}{17212B}
+\definecolor{InferenceBlue}{HTML}{2E668F}
+\definecolor{InferenceBlueSoft}{HTML}{E8F2F8}
+\definecolor{InferenceGreen}{HTML}{28705D}
+\definecolor{InferenceGreenSoft}{HTML}{E9F4EF}
+\definecolor{InferenceGold}{HTML}{9A6915}
+\definecolor{InferenceGoldSoft}{HTML}{FBF2DE}
+\definecolor{InferenceRed}{HTML}{A5453F}
+\definecolor{InferenceRedSoft}{HTML}{FBEDEC}
+\definecolor{InferenceCode}{HTML}{F4F6F7}
+\definecolor{InferenceRule}{HTML}{C7D1D8}
 
 \usepackage[most]{tcolorbox}
 \tcbset{
@@ -38,43 +38,43 @@
 }
 \newtcolorbox{chapterfocus}{
   title=Chapter focus,
-  colback=LeetBlueSoft,
-  colframe=LeetBlue
+  colback=InferenceBlueSoft,
+  colframe=InferenceBlue
 }
 \newtcolorbox{exercisebox}[1][]{
   title=Exercise,#1,
-  colback=LeetGoldSoft,
-  colframe=LeetGold
+  colback=InferenceGoldSoft,
+  colframe=InferenceGold
 }
 \newtcolorbox{hintbox}[1][]{
   title=Hint,#1,
-  colback=LeetGoldSoft,
-  colframe=LeetGold
+  colback=InferenceGoldSoft,
+  colframe=InferenceGold
 }
 \newtcolorbox{solutionstrategy}{
   title=Solution strategy,
-  colback=LeetGreenSoft,
-  colframe=LeetGreen
+  colback=InferenceGreenSoft,
+  colframe=InferenceGreen
 }
 \newtcolorbox{implementationpoint}[1][]{
   title=Implementation point,#1,
-  colback=LeetBlueSoft,
-  colframe=LeetBlue
+  colback=InferenceBlueSoft,
+  colframe=InferenceBlue
 }
 \newtcolorbox{invariantbox}{
   title=Correctness invariant,
-  colback=LeetGreenSoft,
-  colframe=LeetGreen
+  colback=InferenceGreenSoft,
+  colframe=InferenceGreen
 }
 \newtcolorbox{pitfallbox}{
   title=Common failure mode,
-  colback=LeetRedSoft,
-  colframe=LeetRed
+  colback=InferenceRedSoft,
+  colframe=InferenceRed
 }
 \newtcolorbox{readingguide}{
   title=How to read the listing,
   colback=white,
-  colframe=LeetRule,
+  colframe=InferenceRule,
   fontupper=\small,
   before upper=\sloppy
 }
@@ -82,8 +82,8 @@
   \begin{tcolorbox}[
     enhanced jigsaw,
     breakable,
-    colback=LeetCode,
-    colframe=LeetCode,
+    colback=InferenceCode,
+    colframe=InferenceCode,
     boxrule=0pt,
     arc=0pt,
     left=2mm,
@@ -101,8 +101,8 @@
 \usetikzlibrary{arrows.meta,calc,positioning,shapes.geometric}
 \tikzset{
   diagram node/.style={
-    draw=LeetBlue,
-    fill=LeetBlueSoft,
+    draw=InferenceBlue,
+    fill=InferenceBlueSoft,
     rounded corners=2pt,
     line width=0.55pt,
     align=center,
@@ -113,8 +113,8 @@
   },
   diagram decision/.style={
     diamond,
-    draw=LeetGold,
-    fill=LeetGoldSoft,
+    draw=InferenceGold,
+    fill=InferenceGoldSoft,
     line width=0.55pt,
     align=center,
     text width=2.15cm,
@@ -122,13 +122,13 @@
     inner sep=1.5pt,
     font=\sffamily\scriptsize
   },
-  diagram edge/.style={-{Stealth[length=2.2mm]},draw=LeetInk!72,line width=0.6pt},
+  diagram edge/.style={-{Stealth[length=2.2mm]},draw=InferenceInk!72,line width=0.6pt},
   diagram edge label/.style={
     fill=white,
     inner sep=1.5pt,
     align=center,
     font=\sffamily\scriptsize,
-    text=LeetInk
+    text=InferenceInk
   }
 }
 \usepackage{adjustbox}
@@ -153,19 +153,19 @@
 
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
-  {\sffamily\bfseries\color{LeetInk}}
-  {\filleft\fontsize{42}{44}\selectfont\color{LeetBlue}\thechapter}
+  {\sffamily\bfseries\color{InferenceInk}}
+  {\filleft\fontsize{42}{44}\selectfont\color{InferenceBlue}\thechapter}
   {5pt}
   {\titlerule[0.7pt]\vspace{8pt}\Huge}
 \titlespacing*{\chapter}{0pt}{-18pt}{24pt}
-\titleformat{\section}{\Large\sffamily\bfseries\color{LeetInk}}{\thesection}{0.7em}{}
-\titleformat{\subsection}{\large\sffamily\bfseries\color{LeetInk}}{\thesubsection}{0.7em}{}
+\titleformat{\section}{\Large\sffamily\bfseries\color{InferenceInk}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\large\sffamily\bfseries\color{InferenceInk}}{\thesubsection}{0.7em}{}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\sffamily\small\nouppercase{\leftmark}}
-\fancyhead[R]{\sffamily\small LeetLLM Companion}
+\fancyhead[R]{\sffamily\small Inference School Companion}
 \fancyfoot[C]{\sffamily\small\thepage}
 \renewcommand{\headrulewidth}{0.35pt}
 

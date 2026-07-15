@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title description">
-  <title id="title">LeetLLM social preview</title>
-  <desc id="description">LeetLLM, a hands-on Swift and Metal course for building language-model inference from first principles on Apple silicon.</desc>
+  <title id="title">Inference School social preview</title>
+  <desc id="description">Inference School, a hands-on Swift and Metal course for building language-model inference from first principles on Apple silicon.</desc>
 
   <defs>
     <pattern id="grid-light" width="32" height="32" patternUnits="userSpaceOnUse">
@@ -27,13 +27,13 @@
     <g transform="translate(72 64)">
       <rect width="42" height="42" rx="5" fill="#FFC857"/>
       <path d="M12 12L23 21L12 30M26 30H33" fill="none" stroke="#0D1821" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/>
-      <text x="58" y="17" fill="#FFFFFF" font-family="Menlo, monospace" font-size="14" font-weight="700" letter-spacing="1.6">LEETLLM / 00-47</text>
+      <text x="58" y="17" fill="#FFFFFF" font-family="Menlo, monospace" font-size="14" font-weight="700" letter-spacing="1.6">INFERENCE_SCHOOL / 00-47</text>
       <text x="58" y="38" fill="#C7D6FF" font-family="Menlo, monospace" font-size="13" letter-spacing="0.6">INFERENCE COURSE</text>
     </g>
 
-    <text x="68" y="247" fill="#FFFFFF" font-size="112" font-weight="800" letter-spacing="0">Leet</text>
-    <text x="68" y="355" fill="#FFFFFF" font-size="112" font-weight="800" letter-spacing="0">LLM</text>
-    <rect x="340" y="321" width="90" height="16" fill="#FFC857"/>
+    <text x="68" y="247" fill="#FFFFFF" font-size="92" font-weight="800" letter-spacing="0">Inference</text>
+    <text x="68" y="355" fill="#FFFFFF" font-size="112" font-weight="800" letter-spacing="0">School</text>
+    <rect x="373" y="321" width="90" height="16" fill="#FFC857"/>
 
     <text x="72" y="417" fill="#FFFFFF" font-size="27" font-weight="500" letter-spacing="0">Build inference from first principles.</text>
     <text x="72" y="456" fill="#C7D6FF" font-size="20" font-weight="500" letter-spacing="0">Every operator. CPU oracle. Metal kernel.</text>

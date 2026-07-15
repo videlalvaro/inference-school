@@ -181,8 +181,8 @@ Position gaps and invalid token IDs are rejected. Tests also inject a false
 reprojection counter and require rejection.
 
 ```sh
-swift run leetllm check 040 --cpu
-swift run leetllm check 040 --solution
+swift run inference-school check 040 --cpu
+swift run inference-school check 040 --solution
 ```
 
 ## Performance model: FLOPs, bytes, and cache
@@ -283,12 +283,12 @@ changing this state machine.
 
 ## Canonical solution
 
-- [Decode contracts, generation result, and full-recompute judge](../../Sources/LeetLLMCore/Problems/P040AutoregressiveDecode.swift)
-- [Learner starter](../../Sources/LeetLLMExercises/P040AutoregressiveDecodeExercise.swift)
-- [Canonical decode wrapper and generation session](../../Sources/LeetLLMSolutions/P040AutoregressiveDecodeSolution.swift)
-- [Shared prefill/decode CPU engine](../../Sources/LeetLLMSolutions/MiniDecoderCPUEngine.swift)
-- [Focused stateful-generation tests](../../Tests/LeetLLMCoreTests/P040AutoregressiveDecodeTests.swift)
-- [Cached attention implementation](../../Sources/LeetLLMSolutions/P023CachedAttentionSolution.swift)
+- [Decode contracts, generation result, and full-recompute judge](../../Sources/InferenceSchoolCore/Problems/P040AutoregressiveDecode.swift)
+- [Learner starter](../../Sources/InferenceSchoolExercises/P040AutoregressiveDecodeExercise.swift)
+- [Canonical decode wrapper and generation session](../../Sources/InferenceSchoolSolutions/P040AutoregressiveDecodeSolution.swift)
+- [Shared prefill/decode CPU engine](../../Sources/InferenceSchoolSolutions/MiniDecoderCPUEngine.swift)
+- [Focused stateful-generation tests](../../Tests/InferenceSchoolCoreTests/P040AutoregressiveDecodeTests.swift)
+- [Cached attention implementation](../../Sources/InferenceSchoolSolutions/P023CachedAttentionSolution.swift)
 
 ## Completion checklist
 

@@ -101,9 +101,9 @@ reads. A fake implementation that labels token-major data as head-major fails
 even though its values appear unchanged.
 
 ```sh
-swift run leetllm check 024 --cpu
-swift run leetllm check 024 --solution
-swift run -c release leetllm benchmark 024 --layers 16 --tokens 2048 --heads 8 --dimension 64 --iterations 7
+swift run inference-school check 024 --cpu
+swift run inference-school check 024 --solution
+swift run -c release inference-school benchmark 024 --layers 16 --tokens 2048 --heads 8 --dimension 64 --iterations 7
 ```
 
 ## Performance, bandwidth, and allocation model
@@ -190,9 +190,9 @@ only together with matching append, gather, and attention kernels.
 
 ## Canonical solution
 
-- [Layout contracts and judge](../../Sources/LeetLLMCore/Problems/P024KVLayoutShootout.swift)
-- [Copy, trace, and benchmark solution](../../Sources/LeetLLMSolutions/P024KVLayoutShootoutSolution.swift)
-- [Focused tests](../../Tests/LeetLLMCoreTests/P024KVLayoutShootoutTests.swift)
+- [Layout contracts and judge](../../Sources/InferenceSchoolCore/Problems/P024KVLayoutShootout.swift)
+- [Copy, trace, and benchmark solution](../../Sources/InferenceSchoolSolutions/P024KVLayoutShootoutSolution.swift)
+- [Focused tests](../../Tests/InferenceSchoolCoreTests/P024KVLayoutShootoutTests.swift)
 
 ## Completion checklist
 

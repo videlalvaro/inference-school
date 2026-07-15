@@ -54,17 +54,17 @@ const browser = await chromium.launch({ executablePath: browserExecutable, headl
 try {
   const page = await browser.newPage({ viewport: { width: 860, height: 900 } });
   const rendererURL = new URL(
-    "Sources/LeetLLMStudio/Resources/Diagram/index.html",
+    "Sources/InferenceSchoolStudio/Resources/Diagram/index.html",
     server.origin
   );
   await page.goto(rendererURL.href);
-  await page.waitForFunction(() => typeof window.LeetDiagram?.render === "function");
+  await page.waitForFunction(() => typeof window.InferenceSchoolDiagram?.render === "function");
 
   for (const diagram of diagrams) {
     for (const theme of ["light", "dark"]) {
       const rendering = { ...diagram, theme };
       const result = await page.evaluate(async (payload) => {
-        await window.LeetDiagram.render({
+        await window.InferenceSchoolDiagram.render({
           id: payload.id,
           source: payload.source,
           title: `${payload.lesson} diagram`,
@@ -156,7 +156,7 @@ function validateVisiblePixels(diagram, image) {
 }
 
 async function locateBrowserExecutable() {
-  const configured = process.env.LEETLLM_BROWSER_PATH;
+  const configured = process.env.INFERENCE_SCHOOL_BROWSER_PATH;
   const candidates = [
     configured,
     "/Applications/Microsoft Edge.app/Contents/MacOS/Microsoft Edge",
@@ -174,7 +174,7 @@ async function locateBrowserExecutable() {
     } catch {}
   }
   throw new Error(
-    "A Chromium browser is required for diagram rendering tests. Set LEETLLM_BROWSER_PATH to its executable."
+    "A Chromium browser is required for diagram rendering tests. Set INFERENCE_SCHOOL_BROWSER_PATH to its executable."
   );
 }
 

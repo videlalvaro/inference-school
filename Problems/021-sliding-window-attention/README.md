@@ -95,9 +95,9 @@ A full-causal implementation fails the window-one and offset cases even though
 its shapes and numerical softmax are otherwise valid.
 
 ```sh
-swift run leetllm check 021 --cpu
-swift run leetllm check 021 --metal
-swift run leetllm check 021 --solution
+swift run inference-school check 021 --cpu
+swift run inference-school check 021 --metal
+swift run inference-school check 021 --solution
 ```
 
 ## Performance and memory model
@@ -127,7 +127,7 @@ There is no score buffer, threadgroup memory, or barrier. The MSL kernel is real
 and independent of the CPU solution. A future tiled local kernel could skip
 entire K/V tiles outside the window rather than testing every local key.
 
-See [P021SlidingWindowAttention.metal](../../Sources/LeetLLMSolutions/Metal/P021SlidingWindowAttention.metal).
+See [P021SlidingWindowAttention.metal](../../Sources/InferenceSchoolSolutions/Metal/P021SlidingWindowAttention.metal).
 
 ## Implementation checkpoints
 
@@ -187,9 +187,9 @@ the same concatenation and projection path as full attention.
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P021SlidingWindowAttentionSolution.swift)
-- [Metal solution](../../Sources/LeetLLMSolutions/Metal/P021SlidingWindowAttention.metal)
-- [Judge](../../Sources/LeetLLMCore/Problems/P021SlidingWindowAttention.swift)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P021SlidingWindowAttentionSolution.swift)
+- [Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P021SlidingWindowAttention.metal)
+- [Judge](../../Sources/InferenceSchoolCore/Problems/P021SlidingWindowAttention.swift)
 
 ## Completion checklist
 

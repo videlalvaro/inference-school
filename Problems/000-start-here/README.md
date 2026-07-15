@@ -1,6 +1,6 @@
 # 000: Start Here: Build an LLM Inference Engine
 
-## What LeetLLM Studio is
+## What Inference School Studio is
 
 A **large language model (LLM)** is a learned numerical model that receives a
 sequence of tokens and produces scores for what token should come next. A
@@ -8,7 +8,7 @@ sequence of tokens and produces scores for what token should come next. A
 position. **Inference** means running an already trained model to produce those
 predictions; unlike training, it does not update the model's learned weights.
 
-LeetLLM Studio is a hands-on course for learning how that inference works from
+Inference School Studio is a hands-on course for learning how that inference works from
 the arithmetic upward. It combines a lesson reader, editable Swift and Metal
 source files, and correctness checks in one macOS app. The repository also
 provides the same material as a companion book and command-line project.
@@ -72,7 +72,7 @@ The Text Size menu in the toolbar scales lesson text, controls, source code,
 and results from 80% through 200%. The keyboard commands are Command-Plus to
 increase, Command-Minus to decrease, and Command-Zero to return to 100%.
 
-If you prefer a terminal, each lesson also gives focused `swift run leetllm`
+If you prefer a terminal, each lesson also gives focused `swift run inference-school`
 commands. The app and command line use the same course sources and judges.
 
 ## Trust and local execution

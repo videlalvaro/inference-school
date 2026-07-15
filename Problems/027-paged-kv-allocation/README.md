@@ -108,8 +108,8 @@ Focused tests exhaust a one-page pool, free it, and prove another layer reuses
 physical page zero. An implementation that constructs contiguous page IDs fails.
 
 ```sh
-swift run leetllm check 027 --cpu
-swift run leetllm check 027 --solution
+swift run inference-school check 027 --cpu
+swift run inference-school check 027 --solution
 ```
 
 ## Performance, bytes, and fragmentation model
@@ -191,9 +191,9 @@ physical pool and scheduler.
 
 ## Canonical solution
 
-- [Paged operations, accounting, and judge](../../Sources/LeetLLMCore/Problems/P027PagedKVCache.swift)
-- [Page allocator and gather](../../Sources/LeetLLMSolutions/P027PagedKVCacheSolution.swift)
-- [Exhaustion and reuse tests](../../Tests/LeetLLMCoreTests/P027PagedKVCacheTests.swift)
+- [Paged operations, accounting, and judge](../../Sources/InferenceSchoolCore/Problems/P027PagedKVCache.swift)
+- [Page allocator and gather](../../Sources/InferenceSchoolSolutions/P027PagedKVCacheSolution.swift)
+- [Exhaustion and reuse tests](../../Tests/InferenceSchoolCoreTests/P027PagedKVCacheTests.swift)
 
 ## Completion checklist
 

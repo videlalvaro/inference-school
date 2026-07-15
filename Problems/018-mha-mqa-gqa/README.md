@@ -99,9 +99,9 @@ values so wrong mappings fail. `AttentionConfiguration` independently rejects
 non-divisible counts. `KVCacheByteModel` tests exact cache-size ratios.
 
 ```sh
-swift run leetllm check 018 --cpu
-swift run leetllm check 018 --metal
-swift run leetllm check 018 --solution
+swift run inference-school check 018 --cpu
+swift run inference-school check 018 --metal
+swift run inference-school check 018 --solution
 ```
 
 ## Performance and cache model
@@ -130,7 +130,7 @@ The simple kernel rereads shared K/V for each query head. Hardware caches may
 capture some reuse; a cooperative grouped kernel could make it explicit. There
 are no barriers in the current mapping.
 
-See [P018GroupedQueryAttention.metal](../../Sources/LeetLLMSolutions/Metal/P018GroupedQueryAttention.metal).
+See [P018GroupedQueryAttention.metal](../../Sources/InferenceSchoolSolutions/Metal/P018GroupedQueryAttention.metal).
 
 ## Implementation checkpoints
 
@@ -183,9 +183,9 @@ must verify Q projection width against `Hq*dh` and K/V widths against
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P018GroupedQueryAttentionSolution.swift)
-- [Metal solution](../../Sources/LeetLLMSolutions/Metal/P018GroupedQueryAttention.metal)
-- [Configuration and cache model](../../Sources/LeetLLMCore/Problems/P018GroupedQueryAttention.swift)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P018GroupedQueryAttentionSolution.swift)
+- [Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P018GroupedQueryAttention.metal)
+- [Configuration and cache model](../../Sources/InferenceSchoolCore/Problems/P018GroupedQueryAttention.swift)
 
 ## Completion checklist
 

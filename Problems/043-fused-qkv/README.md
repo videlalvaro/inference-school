@@ -93,7 +93,7 @@ flowchart LR
 `P043FusedQKVSolution.separate` makes the normalized tensor explicit, then projects it three times. `fused` computes normalized values while accumulating projection outputs and never allocates `[S,D]` normalization storage. Both are useful: the separate path explains semantics; the fused path exposes the removed boundary.
 
 ```sh
-swift run leetllm check 043 --cpu --solution
+swift run inference-school check 043 --cpu --solution
 ```
 
 ## Correctness method
@@ -103,7 +103,7 @@ The judge independently computes RMSNorm and each projection in Double. It cover
 An element passes when its absolute error is bounded by `5e-5 + 1e-4*max(|actual|,|expected|)`. CPU and Metal implementations use the same judge.
 
 ```sh
-swift run leetllm check 043 --solution
+swift run inference-school check 043 --solution
 ```
 
 ## Performance model
@@ -121,7 +121,7 @@ The bundled cost model counts four separate dispatches versus one fused dispatch
 This is a traffic model, not a cache-counter measurement. Run:
 
 ```sh
-swift run -c release leetllm benchmark 043 --tokens 32 --iterations 20
+swift run -c release inference-school benchmark 043 --tokens 32 --iterations 20
 ```
 
 The Metal timing is end-to-end and includes shared-buffer allocation, copies, submission, and a host wait.
@@ -190,13 +190,13 @@ Problem 047 invokes the fused QKV Metal kernel on the real layer-0 residual capt
 
 ## Canonical solution
 
-- [Contract, cost model, and judge](../../Sources/LeetLLMCore/Problems/P043FusedQKV.swift)
-- [Metal host pipeline](../../Sources/LeetLLMCore/Metal/MetalFusedQKVPipeline.swift)
-- [Learner Swift starter](../../Sources/LeetLLMExercises/P043FusedQKVExercise.swift)
-- [Learner Metal starter](../../Sources/LeetLLMExercises/Metal/P043FusedQKV.metal)
-- [Canonical Swift path](../../Sources/LeetLLMSolutions/P043FusedQKVSolution.swift)
-- [Canonical Metal kernel](../../Sources/LeetLLMSolutions/Metal/P043FusedQKV.metal)
-- [Focused tests](../../Tests/LeetLLMCoreTests/P043FusedQKVTests.swift)
+- [Contract, cost model, and judge](../../Sources/InferenceSchoolCore/Problems/P043FusedQKV.swift)
+- [Metal host pipeline](../../Sources/InferenceSchoolCore/Metal/MetalFusedQKVPipeline.swift)
+- [Learner Swift starter](../../Sources/InferenceSchoolExercises/P043FusedQKVExercise.swift)
+- [Learner Metal starter](../../Sources/InferenceSchoolExercises/Metal/P043FusedQKV.metal)
+- [Canonical Swift path](../../Sources/InferenceSchoolSolutions/P043FusedQKVSolution.swift)
+- [Canonical Metal kernel](../../Sources/InferenceSchoolSolutions/Metal/P043FusedQKV.metal)
+- [Focused tests](../../Tests/InferenceSchoolCoreTests/P043FusedQKVTests.swift)
 
 ## Completion checklist
 

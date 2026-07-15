@@ -117,7 +117,7 @@ darkMode.addEventListener("change", (event) => {
   view.dispatch({ effects: theme.reconfigure(event.matches ? darkTheme : lightTheme) });
 });
 
-window.LeetEditor = {
+window.InferenceSchoolEditor = {
   setDocument(document) {
     const effects = [];
     const nextLanguage = document.language || "text";

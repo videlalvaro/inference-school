@@ -106,9 +106,9 @@ but fails the allocation invariant. Metal runs the identical judge after actual
 runtime MSL compilation and dispatch.
 
 ```sh
-swift run leetllm check 033 --cpu
-swift run leetllm check 033 --metal
-swift run leetllm check 033 --solution
+swift run inference-school check 033 --cpu
+swift run inference-school check 033 --metal
+swift run inference-school check 033 --solution
 ```
 
 ## Bytes and arithmetic intensity
@@ -155,14 +155,14 @@ input, and Float32 output. There is no host dequantization and no device Float
 weight buffer. The host-side CPU oracle is independent validation, not data fed
 to the kernel.
 
-See [P033FusedQ4GEMV.metal](../../Sources/LeetLLMSolutions/Metal/P033FusedQ4GEMV.metal).
+See [P033FusedQ4GEMV.metal](../../Sources/InferenceSchoolSolutions/Metal/P033FusedQ4GEMV.metal).
 
 ## Benchmark contract
 
 Run:
 
 ```sh
-swift run -c release leetllm benchmark 033 \
+swift run -c release inference-school benchmark 033 \
   --out 1024 --in 1024 --group-size 64 --iterations 20
 ```
 
@@ -232,12 +232,12 @@ Problem 034 then checks how representation errors propagate across operators.
 
 ## Canonical solution
 
-- [Fused result contract and judge](../../Sources/LeetLLMCore/Problems/P033FusedQ4GEMV.swift)
-- [CPU fused implementation and converter](../../Sources/LeetLLMSolutions/P033FusedQ4GEMVSolution.swift)
-- [Metal host pipeline](../../Sources/LeetLLMCore/Metal/MetalFusedQ4GEMVPipeline.swift)
-- [Canonical MSL kernel](../../Sources/LeetLLMSolutions/Metal/P033FusedQ4GEMV.metal)
-- [CPU tests](../../Tests/LeetLLMCoreTests/P033FusedQ4GEMVTests.swift)
-- [Metal runtime tests](../../Tests/LeetLLMCoreTests/P033FusedQ4GEMVMetalTests.swift)
+- [Fused result contract and judge](../../Sources/InferenceSchoolCore/Problems/P033FusedQ4GEMV.swift)
+- [CPU fused implementation and converter](../../Sources/InferenceSchoolSolutions/P033FusedQ4GEMVSolution.swift)
+- [Metal host pipeline](../../Sources/InferenceSchoolCore/Metal/MetalFusedQ4GEMVPipeline.swift)
+- [Canonical MSL kernel](../../Sources/InferenceSchoolSolutions/Metal/P033FusedQ4GEMV.metal)
+- [CPU tests](../../Tests/InferenceSchoolCoreTests/P033FusedQ4GEMVTests.swift)
+- [Metal runtime tests](../../Tests/InferenceSchoolCoreTests/P033FusedQ4GEMVMetalTests.swift)
 
 ## Completion checklist
 

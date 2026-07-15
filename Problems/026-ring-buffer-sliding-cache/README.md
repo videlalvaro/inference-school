@@ -95,8 +95,8 @@ against the materialized Double oracle. Focused tests also reject a position gap
 and a read of overwritten position five.
 
 ```sh
-swift run leetllm check 026 --cpu
-swift run leetllm check 026 --solution
+swift run inference-school check 026 --cpu
+swift run inference-school check 026 --solution
 ```
 
 ## Performance, bandwidth, and allocation model
@@ -174,9 +174,9 @@ local layers and a different retention policy for global layers.
 
 ## Canonical solution
 
-- [Ring request and judge](../../Sources/LeetLLMCore/Problems/P026RingKVCache.swift)
-- [Ring cache and attention integration](../../Sources/LeetLLMSolutions/P026RingKVCacheSolution.swift)
-- [Wraparound tests](../../Tests/LeetLLMCoreTests/P026RingKVCacheTests.swift)
+- [Ring request and judge](../../Sources/InferenceSchoolCore/Problems/P026RingKVCache.swift)
+- [Ring cache and attention integration](../../Sources/InferenceSchoolSolutions/P026RingKVCacheSolution.swift)
+- [Wraparound tests](../../Tests/InferenceSchoolCoreTests/P026RingKVCacheTests.swift)
 
 ## Completion checklist
 

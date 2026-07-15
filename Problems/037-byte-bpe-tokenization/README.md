@@ -167,8 +167,8 @@ Tests pass a byte-only implementation to the shared judge and require failure,
 proving whitespace or byte splitting alone is not accepted as BPE.
 
 ```sh
-swift run leetllm check 037 --cpu
-swift run leetllm check 037 --solution
+swift run inference-school check 037 --cpu
+swift run inference-school check 037 --solution
 ```
 
 ## Performance model: work, bytes, and allocation
@@ -269,11 +269,11 @@ a substitute for a real checkpoint's tokenizer files.
 
 ## Canonical solution
 
-- [Vocabulary, merge contracts, reusable fixture, and judge](../../Sources/LeetLLMCore/Problems/P037ByteBPE.swift)
-- [Learner tokenizer starter](../../Sources/LeetLLMExercises/P037ByteBPEExercise.swift)
-- [Canonical byte-level BPE](../../Sources/LeetLLMSolutions/P037ByteBPESolution.swift)
-- [Unicode, policy, and wrong-implementation tests](../../Tests/LeetLLMCoreTests/P037ByteBPETests.swift)
-- [Embedding lookup used next](../../Sources/LeetLLMCore/Problems/P013Embedding.swift)
+- [Vocabulary, merge contracts, reusable fixture, and judge](../../Sources/InferenceSchoolCore/Problems/P037ByteBPE.swift)
+- [Learner tokenizer starter](../../Sources/InferenceSchoolExercises/P037ByteBPEExercise.swift)
+- [Canonical byte-level BPE](../../Sources/InferenceSchoolSolutions/P037ByteBPESolution.swift)
+- [Unicode, policy, and wrong-implementation tests](../../Tests/InferenceSchoolCoreTests/P037ByteBPETests.swift)
+- [Embedding lookup used next](../../Sources/InferenceSchoolCore/Problems/P013Embedding.swift)
 
 ## Completion checklist
 

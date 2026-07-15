@@ -3,10 +3,10 @@
 set -euo pipefail
 
 app_path=${1:A}
-result_file="$HOME/Library/Containers/dev.leetllm.studio/Data/tmp/leetllm-diagram-smoke-result.txt"
+result_file="$HOME/Library/Containers/dev.inferenceschool.studio/Data/tmp/inference-school-diagram-smoke-result.txt"
 
 if [[ "$app_path" != *.app || ! -d "$app_path" ]]; then
-    print -u2 "usage: $0 /path/to/LeetLLM Studio.app"
+    print -u2 "usage: $0 /path/to/Inference School Studio.app"
     exit 64
 fi
 

@@ -1,6 +1,6 @@
 # Third-Party Notices
 
-LeetLLM Studio incorporates the following third-party packages. This file is
+Inference School Studio incorporates the following third-party packages. This file is
 generated from the committed lockfiles and installed package license files by
 `scripts/generate-third-party-notices.mjs`.
 

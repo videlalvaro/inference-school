@@ -159,9 +159,9 @@ Pay attention to these failure modes:
 Run:
 
 ```sh
-swift run leetllm check 007 --cpu
-swift run leetllm check 007 --metal
-swift run leetllm check 007 --solution
+swift run inference-school check 007 --cpu
+swift run inference-school check 007 --metal
+swift run inference-school check 007 --solution
 ```
 
 ## Performance model
@@ -192,7 +192,7 @@ The Metal grid is one-dimensional with $N$ threads. Thread `i` reads
 
 The host passes the element count and the `Activation` raw value as constant
 buffers. The canonical shader lives at
-[P007Activation.metal](../../Sources/LeetLLMSolutions/Metal/P007Activation.metal).
+[P007Activation.metal](../../Sources/InferenceSchoolSolutions/Metal/P007Activation.metal).
 The starter uses the same bindings and compiles, but currently copies input.
 
 ## Implementation checkpoints
@@ -256,8 +256,8 @@ should remain separate or be fused into a producer or consumer.
 
 Read the canonical code only after recording your own formulas and prediction:
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P007ActivationSolution.swift)
-- [Metal solution](../../Sources/LeetLLMSolutions/Metal/P007Activation.metal)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P007ActivationSolution.swift)
+- [Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P007Activation.metal)
 
 ## Completion checklist
 

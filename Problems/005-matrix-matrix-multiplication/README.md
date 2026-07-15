@@ -116,7 +116,7 @@ materialization, but those options enlarge the contract and kernel set.
 ## CPU reference path
 
 Open
-[P005GEMMExercise.swift](../../Sources/LeetLLMExercises/P005GEMMExercise.swift).
+[P005GEMMExercise.swift](../../Sources/InferenceSchoolExercises/P005GEMMExercise.swift).
 
 Implement the direct definition:
 
@@ -135,7 +135,7 @@ return tensor(output, shape: [M, N])
 Run:
 
 ```sh
-swift run leetllm check 005 --cpu
+swift run inference-school check 005 --cpu
 ```
 
 This loop repeatedly walks columns of row-major B with stride `N`. It is a
@@ -196,7 +196,7 @@ output cells.
 ## Metal mapping
 
 Open
-[P005GEMM.metal](../../Sources/LeetLLMExercises/Metal/P005GEMM.metal).
+[P005GEMM.metal](../../Sources/InferenceSchoolExercises/Metal/P005GEMM.metal).
 
 One `16x16` threadgroup produces one `16x16` output tile. Local thread $(x,y)$
 owns output
@@ -261,9 +261,9 @@ flowchart TD
 Commands:
 
 ```sh
-swift run leetllm check 005 --cpu
-swift run leetllm check 005 --metal
-swift run leetllm check 005
+swift run inference-school check 005 --cpu
+swift run inference-school check 005 --metal
+swift run inference-school check 005
 ```
 
 ## Controlled experiments
@@ -338,10 +338,10 @@ participate. Only the final output store can be skipped by invalid M/N lanes.
 <summary>Canonical check</summary>
 
 ```sh
-swift run leetllm check 005 --solution
+swift run inference-school check 005 --solution
 ```
 
-Canonical Swift and Metal implementations are in `LeetLLMSolutions`.
+Canonical Swift and Metal implementations are in `InferenceSchoolSolutions`.
 
 </details>
 

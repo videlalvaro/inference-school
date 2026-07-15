@@ -110,9 +110,9 @@ It checks positions zero and one, different Q/K offsets, partial suffixes, odd
 fails the offset cases.
 
 ```sh
-swift run leetllm check 015 --cpu
-swift run leetllm check 015 --metal
-swift run leetllm check 015 --solution
+swift run inference-school check 015 --cpu
+swift run inference-school check 015 --metal
+swift run inference-school check 015 --solution
 ```
 
 ## Performance model
@@ -136,7 +136,7 @@ Q and K use separate dispatches because their sequence lengths, head counts,
 and offsets can differ. No thread shares a pair, so no barrier or threadgroup
 memory is needed. Bounds are checked against `S*H*(R/2)`.
 
-See [P015RoPE.metal](../../Sources/LeetLLMSolutions/Metal/P015RoPE.metal).
+See [P015RoPE.metal](../../Sources/InferenceSchoolSolutions/Metal/P015RoPE.metal).
 
 ## Implementation checkpoints
 
@@ -193,9 +193,9 @@ prefill and cached decode preserve those semantics.
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P015RoPESolution.swift)
-- [Metal solution](../../Sources/LeetLLMSolutions/Metal/P015RoPE.metal)
-- [Contract and judge](../../Sources/LeetLLMCore/Problems/P015RoPE.swift)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P015RoPESolution.swift)
+- [Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P015RoPE.metal)
+- [Contract and judge](../../Sources/InferenceSchoolCore/Problems/P015RoPE.swift)
 
 ## Completion checklist
 

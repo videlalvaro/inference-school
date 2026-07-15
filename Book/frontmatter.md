@@ -1,13 +1,13 @@
 # Preface {-}
 
-LeetLLM builds one small decoder-only transformer inference engine from first
+Inference School builds one small decoder-only transformer inference engine from first
 principles. The chapters begin with a scalar reduction and end with a measured,
 inspectable generation pipeline. Swift provides the readable semantic path;
 Metal exposes the memory, synchronization, and execution decisions that make
 inference a systems problem.
 
 This companion is generated from the same lesson and source files as the native
-LeetLLM Studio application. It is not a parallel curriculum. Equations,
+Inference School Studio application. It is not a parallel curriculum. Equations,
 exercises, diagrams, starter files, experiments, and canonical implementations
 remain tied to the repository that executes them.
 

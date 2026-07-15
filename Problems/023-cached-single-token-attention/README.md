@@ -99,9 +99,9 @@ layer, allocation bytes, position transcripts, bad query shape, and a query
 position that is not the appended current token.
 
 ```sh
-swift run leetllm check 023 --cpu
-swift run leetllm check 023 --metal
-swift run leetllm check 023 --solution
+swift run inference-school check 023 --cpu
+swift run inference-school check 023 --metal
+swift run inference-school check 023 --solution
 ```
 
 ## Performance, bytes, and allocation model
@@ -131,7 +131,7 @@ memory or barrier. The command is compiled from MSL at runtime, dispatched, and
 checked for completion. The starter kernel also executes MSL but writes an
 intentionally wrong zero result.
 
-See [P023CachedAttention.metal](../../Sources/LeetLLMSolutions/Metal/P023CachedAttention.metal).
+See [P023CachedAttention.metal](../../Sources/InferenceSchoolSolutions/Metal/P023CachedAttention.metal).
 
 ## Implementation checkpoints
 
@@ -191,10 +191,10 @@ the same cache-readable CPU boundary while selecting a production kernel.
 
 ## Canonical solution
 
-- [CPU cached attention](../../Sources/LeetLLMSolutions/P023CachedAttentionSolution.swift)
-- [Metal pipeline](../../Sources/LeetLLMCore/Metal/MetalCachedAttentionPipeline.swift)
-- [MSL kernel](../../Sources/LeetLLMSolutions/Metal/P023CachedAttention.metal)
-- [Independent judge](../../Sources/LeetLLMCore/Problems/P023CachedAttention.swift)
+- [CPU cached attention](../../Sources/InferenceSchoolSolutions/P023CachedAttentionSolution.swift)
+- [Metal pipeline](../../Sources/InferenceSchoolCore/Metal/MetalCachedAttentionPipeline.swift)
+- [MSL kernel](../../Sources/InferenceSchoolSolutions/Metal/P023CachedAttention.metal)
+- [Independent judge](../../Sources/InferenceSchoolCore/Problems/P023CachedAttention.swift)
 
 ## Completion checklist
 

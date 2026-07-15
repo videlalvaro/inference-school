@@ -158,9 +158,9 @@ factor `gate`, and running SiLU without multiplication.
 Run:
 
 ```sh
-swift run leetllm check 008 --cpu
-swift run leetllm check 008 --metal
-swift run leetllm check 008 --solution
+swift run inference-school check 008 --cpu
+swift run inference-school check 008 --metal
+swift run inference-school check 008 --solution
 ```
 
 ## Performance model
@@ -200,7 +200,7 @@ up GEMV ------/
 
 The starter and solution bind the same three device buffers and one element
 count. The canonical MSL is
-[P008SwiGLU.metal](../../Sources/LeetLLMSolutions/Metal/P008SwiGLU.metal).
+[P008SwiGLU.metal](../../Sources/InferenceSchoolSolutions/Metal/P008SwiGLU.metal).
 
 ## Implementation checkpoints
 
@@ -263,8 +263,8 @@ with a projection input, which can be applied to gate and up projections later.
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P008SwiGLUSolution.swift)
-- [Metal gate solution](../../Sources/LeetLLMSolutions/Metal/P008SwiGLU.metal)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P008SwiGLUSolution.swift)
+- [Metal gate solution](../../Sources/InferenceSchoolSolutions/Metal/P008SwiGLU.metal)
 
 Inspect them after your hand calculation and experiment prediction are written.
 

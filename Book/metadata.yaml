@@ -1,6 +1,6 @@
-title: "LeetLLM"
+title: "Inference School"
 subtitle: "A Hands-On Companion to Transformer Inference on Apple Silicon"
-author: "The LeetLLM Project"
+author: "The Inference School Project"
 date: "2026"
 lang: en-US
 documentclass: book
@@ -18,6 +18,6 @@ geometry:
   - inner=0.88in
   - outer=0.78in
 colorlinks: true
-linkcolor: LeetBlue
-urlcolor: LeetBlue
-citecolor: LeetGreen
+linkcolor: InferenceBlue
+urlcolor: InferenceBlue
+citecolor: InferenceGreen

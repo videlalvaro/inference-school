@@ -102,9 +102,9 @@ A focused zero-vector test verifies finite metadata. A wrong implementation that
 returns exact Float outputs but reports Float storage bytes still fails.
 
 ```sh
-swift run leetllm check 028 --cpu
-swift run leetllm check 028 --metal
-swift run leetllm check 028 --solution
+swift run inference-school check 028 --cpu
+swift run inference-school check 028 --metal
+swift run inference-school check 028 --solution
 ```
 
 ## Performance model: bytes, bandwidth, and error
@@ -140,7 +140,7 @@ compiles and dispatches the MSL source and checks command completion. Like 023,
 feature ownership repeats score work; that limitation is explicit rather than
 hidden by a CPU fallback.
 
-See [P028QuantizedKVCache.metal](../../Sources/LeetLLMSolutions/Metal/P028QuantizedKVCache.metal).
+See [P028QuantizedKVCache.metal](../../Sources/InferenceSchoolSolutions/Metal/P028QuantizedKVCache.metal).
 
 ## Implementation checkpoints
 
@@ -200,11 +200,11 @@ measured error, bandwidth, and latency.
 
 ## Canonical solution
 
-- [Quantized result contract and judge](../../Sources/LeetLLMCore/Problems/P028QuantizedKVCache.swift)
-- [INT8 cache and CPU attention](../../Sources/LeetLLMSolutions/P028QuantizedKVCacheSolution.swift)
-- [Metal pipeline](../../Sources/LeetLLMCore/Metal/MetalQuantizedCachedAttentionPipeline.swift)
-- [MSL fused dequantization](../../Sources/LeetLLMSolutions/Metal/P028QuantizedKVCache.metal)
-- [CPU and metadata tests](../../Tests/LeetLLMCoreTests/P028QuantizedKVCacheTests.swift)
+- [Quantized result contract and judge](../../Sources/InferenceSchoolCore/Problems/P028QuantizedKVCache.swift)
+- [INT8 cache and CPU attention](../../Sources/InferenceSchoolSolutions/P028QuantizedKVCacheSolution.swift)
+- [Metal pipeline](../../Sources/InferenceSchoolCore/Metal/MetalQuantizedCachedAttentionPipeline.swift)
+- [MSL fused dequantization](../../Sources/InferenceSchoolSolutions/Metal/P028QuantizedKVCache.metal)
+- [CPU and metadata tests](../../Tests/InferenceSchoolCoreTests/P028QuantizedKVCacheTests.swift)
 
 ## Completion checklist
 

@@ -1,6 +1,6 @@
-# LeetLLM
+# Inference School
 
-LeetLLM is a problem-based course in which every exercise contributes to one
+Inference School is a problem-based course in which every exercise contributes to one
 small language-model inference engine for Apple Silicon. The problems are not
 standalone interview puzzles. A dot product becomes GEMV, GEMV becomes Q/K/V
 projections, those projections become attention, and the same path eventually
@@ -19,19 +19,19 @@ into the growing engine.
 
 ## How you use it
 
-LeetLLM Studio is the primary learning environment. It is a native macOS app
+Inference School Studio is the primary learning environment. It is a native macOS app
 with a searchable lesson reader, editable Swift and Metal source files,
 out-of-process checks, persistent completion lists, diagrams, math rendering,
 and text scaling from 80% to 200%. The command line exposes the same lessons,
 learner files, judges, and benchmarks.
 
-![LeetLLM Studio displaying the Start Here lesson and token-generation diagram](docs/assets/leetllm-studio-start-here.png)
+![Inference School Studio displaying the Start Here lesson and token-generation diagram](docs/assets/inference-school-studio-start-here.png)
 
 From the repository root, package and open the Studio:
 
 ```sh
 scripts/package-studio.sh debug
-open "dist/LeetLLM Studio.app"
+open "dist/Inference School Studio.app"
 ```
 
 The packaging script creates an ad hoc signed, sandboxed app for local use. It
@@ -55,13 +55,13 @@ separate: they run with the permissions of your terminal session.
 The complete course is available as a 545-page PDF with native diagrams,
 exercises, and chapter-end solutions:
 
-[Download the LeetLLM Companion PDF](dist/LeetLLM-Companion.pdf)
+[Download the Inference School Companion PDF](dist/Inference-School-Companion.pdf)
 
 Rebuild and verify it with:
 
 ```sh
 make -C Book check
-open "dist/LeetLLM-Companion.pdf"
+open "dist/Inference-School-Companion.pdf"
 ```
 
 The book toolchain requires Python 3, Pandoc, LuaLaTeX, latexmk, and
@@ -146,10 +146,10 @@ xcrun --find metal
 ## Command reference
 
 ```sh
-swift run leetllm list
-swift run leetllm learn 001
-swift run leetllm show 004
-swift run leetllm check 004 --cpu
+swift run inference-school list
+swift run inference-school learn 001
+swift run inference-school show 004
+swift run inference-school check 004 --cpu
 ```
 
 Learner checks are expected to fail value cases before you implement an
@@ -157,28 +157,28 @@ exercise. For problems with a Metal stage, implement both the Swift exercise
 and its matching starter kernel, then run:
 
 ```sh
-swift run leetllm check 004 --metal
-swift run leetllm check 004
+swift run inference-school check 004 --metal
+swift run inference-school check 004
 ```
 
 The canonical implementations let you verify the harness itself:
 
 ```sh
-swift run leetllm check 004 --solution
+swift run inference-school check 004 --solution
 swift test
 ```
 
 Use a release build for measurements:
 
 ```sh
-swift run -c release leetllm benchmark 001
-swift run -c release leetllm benchmark 006
-swift run -c release leetllm benchmark 024
-swift run -c release leetllm benchmark 033
-swift run leetllm benchmark 041 --tokens 128 --cached-tokens 128
-swift run -c release leetllm benchmark 043 --tokens 32 --iterations 20
-swift run -c release leetllm profile 044 --prompt-tokens 16 --trials 7
-swift run -c release leetllm capstone --prompt "ab c." --max-tokens 4
+swift run -c release inference-school benchmark 001
+swift run -c release inference-school benchmark 006
+swift run -c release inference-school benchmark 024
+swift run -c release inference-school benchmark 033
+swift run inference-school benchmark 041 --tokens 128 --cached-tokens 128
+swift run -c release inference-school benchmark 043 --tokens 32 --iterations 20
+swift run -c release inference-school profile 044 --prompt-tokens 16 --trials 7
+swift run -c release inference-school capstone --prompt "ab c." --max-tokens 4
 ```
 
 ## Course map
@@ -205,11 +205,11 @@ through:
 
 ```text
 Problems/                    Full tutorials and required experiments
-Sources/LeetLLMCore/         Judges and reusable host-side infrastructure
-Sources/LeetLLMExercises/    Files the learner edits
-Sources/LeetLLMSolutions/    Canonical answers, kept out of the exercise module
-Sources/LeetLLMCLI/          list, show, check, and benchmark commands
-Sources/LeetLLMStudio/       Native macOS lesson reader and workbench
+Sources/InferenceSchoolCore/         Judges and reusable host-side infrastructure
+Sources/InferenceSchoolExercises/    Files the learner edits
+Sources/InferenceSchoolSolutions/    Canonical answers, kept out of the exercise module
+Sources/InferenceSchoolCLI/          list, show, check, and benchmark commands
+Sources/InferenceSchoolStudio/       Native macOS lesson reader and workbench
 Tests/                       Tests for judges, infrastructure, and answers
 Web/                         Source and lockfiles for bundled browser resources
 Book/                        Companion-book generator and publication checks
@@ -222,7 +222,7 @@ The teaching and completion rules are documented in
 
 ## Security
 
-LeetLLM executes learner code. The packaged Studio confines that work to an
+Inference School executes learner code. The packaged Studio confines that work to an
 App Sandbox and a user-selected folder, but command-line checks inherit the
 permissions of the terminal that launches them. Read [Start Here](docs/START-HERE.md)
 before running checks, and report vulnerabilities according to
@@ -230,6 +230,6 @@ before running checks, and report vulnerabilities according to
 
 ## License
 
-LeetLLM is licensed under the [Apache License 2.0](LICENSE). Dependency
+Inference School is licensed under the [Apache License 2.0](LICENSE). Dependency
 attributions are recorded in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)
 and included in packaged Studio builds.

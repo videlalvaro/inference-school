@@ -77,7 +77,7 @@ The canonical execution validates compatibility, encodes prompt bytes, allocates
 Generated IDs are decoded while skipping BOS/EOS. Valid UTF-8 is printed as text; otherwise the report uses hexadecimal bytes. The report includes each stage time, final cache counts, weight bytes, allocated cache bytes, prefill/decode arena plans, formats, and limitations.
 
 ```sh
-swift run -c release leetllm capstone --prompt "ab c." --max-tokens 4 --seed 47
+swift run -c release inference-school capstone --prompt "ab c." --max-tokens 4 --seed 47
 ```
 
 ## Correctness method
@@ -94,7 +94,7 @@ The capstone judge checks six independent concerns:
 Focused tests also run the actual Metal verification slice and require five named parity captures and three dispatches.
 
 ```sh
-swift run leetllm check 047 --cpu --solution
+swift run inference-school check 047 --cpu --solution
 swift test --filter P047CapstoneMetalVerificationTests
 ```
 
@@ -211,12 +211,12 @@ A real-model extension also requires a compatible production checkpoint loader, 
 
 ## Canonical solution
 
-- [Contracts, fixture, report, independent oracle, and judge](../../Sources/LeetLLMCore/Problems/P047Capstone.swift)
-- [Learner capstone](../../Sources/LeetLLMExercises/P047CapstoneExercise.swift)
-- [Canonical CPU engine and Metal verification](../../Sources/LeetLLMSolutions/P047CapstoneSolution.swift)
-- [CPU capstone tests](../../Tests/LeetLLMCoreTests/P047CapstoneTests.swift)
-- [Metal verification tests](../../Tests/LeetLLMCoreTests/P047CapstoneMetalVerificationTests.swift)
-- [Shared CPU engine](../../Sources/LeetLLMSolutions/MiniDecoderCPUEngine.swift)
+- [Contracts, fixture, report, independent oracle, and judge](../../Sources/InferenceSchoolCore/Problems/P047Capstone.swift)
+- [Learner capstone](../../Sources/InferenceSchoolExercises/P047CapstoneExercise.swift)
+- [Canonical CPU engine and Metal verification](../../Sources/InferenceSchoolSolutions/P047CapstoneSolution.swift)
+- [CPU capstone tests](../../Tests/InferenceSchoolCoreTests/P047CapstoneTests.swift)
+- [Metal verification tests](../../Tests/InferenceSchoolCoreTests/P047CapstoneMetalVerificationTests.swift)
+- [Shared CPU engine](../../Sources/InferenceSchoolSolutions/MiniDecoderCPUEngine.swift)
 
 ## Completion checklist
 

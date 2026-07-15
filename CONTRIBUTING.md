@@ -2,7 +2,7 @@
 
 ## Development setup
 
-LeetLLM requires an Apple Silicon Mac running macOS 15 or newer, plus Xcode or
+Inference School requires an Apple Silicon Mac running macOS 15 or newer, plus Xcode or
 the Xcode command-line tools with Swift and Metal.
 
 Install the locked web dependencies before rebuilding embedded browser assets:
@@ -14,7 +14,7 @@ npm ci --prefix Web/Diagram
 
 The diagram test renders every lesson image in a Chromium browser and checks
 the resulting pixels. It detects Microsoft Edge, Google Chrome, or Chromium in
-their standard locations. Set `LEETLLM_BROWSER_PATH` to the browser executable
+their standard locations. Set `INFERENCE_SCHOOL_BROWSER_PATH` to the browser executable
 when it is installed elsewhere.
 
 ## Before opening a pull request
@@ -30,14 +30,14 @@ node scripts/generate-third-party-notices.mjs
 node scripts/generate-third-party-notices.mjs --check
 make -C Book check
 scripts/package-studio.sh debug
-codesign --verify --deep --strict --verbose=2 "dist/LeetLLM Studio.app"
+codesign --verify --deep --strict --verbose=2 "dist/Inference School Studio.app"
 ```
 
 Rebuilding either web bundle changes committed files under
-`Sources/LeetLLMStudio/Resources`. Commit those generated resources together
+`Sources/InferenceSchoolStudio/Resources`. Commit those generated resources together
 with their source changes. Rebuilding dependencies may also change
 `THIRD_PARTY_NOTICES.md`; regenerate and commit it with any lockfile update.
-Rebuilding the book changes `dist/LeetLLM-Companion.pdf`; commit the published
+Rebuilding the book changes `dist/Inference-School-Companion.pdf`; commit the published
 PDF with curriculum or book-source changes that affect it.
 
 Keep changes focused, add tests for behavior changes, and update the lessons or

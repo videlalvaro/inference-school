@@ -12,7 +12,7 @@ A KV cache can have the right element count and still return the wrong values if
 its strides use a different axis order. This problem therefore builds checked
 row-major tensor storage before adding more arithmetic.
 
-The artifact is `FloatTensor` plus `FloatTensorView` in `LeetLLMCore`. The
+The artifact is `FloatTensor` plus `FloatTensorView` in `InferenceSchoolCore`. The
 exercise uses those types to gather values at logical indices. The canonical
 and learner implementations run through the same judge.
 
@@ -151,7 +151,7 @@ independent storage. These course views are read-only.
 ## CPU reference path
 
 Open
-[P002TensorStorageExercise.swift](../../Sources/LeetLLMExercises/P002TensorStorageExercise.swift).
+[P002TensorStorageExercise.swift](../../Sources/InferenceSchoolExercises/P002TensorStorageExercise.swift).
 
 The starter already constructs a checked tensor and validates every requested
 index. It deliberately returns zeros. Replace the placeholder with the readable
@@ -168,7 +168,7 @@ return result
 Run:
 
 ```sh
-swift run leetllm check 002 --cpu
+swift run inference-school check 002 --cpu
 ```
 
 The expected completed result is `CPU: 6/6 cases`.
@@ -304,10 +304,10 @@ a non-contiguous view.
 <summary>Canonical check</summary>
 
 ```sh
-swift run leetllm check 002 --solution
+swift run inference-school check 002 --solution
 ```
 
-The answer is in `Sources/LeetLLMSolutions/P002TensorStorageSolution.swift`.
+The answer is in `Sources/InferenceSchoolSolutions/P002TensorStorageSolution.swift`.
 
 </details>
 

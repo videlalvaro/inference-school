@@ -127,8 +127,8 @@ A test returns correct numerical captures but labels the known intervention
 from replacing the causal evidence in the controlled experiment.
 
 ```sh
-swift run leetllm check 034 --cpu
-swift run leetllm check 034 --solution
+swift run inference-school check 034 --cpu
+swift run inference-school check 034 --solution
 ```
 
 ## Convention-mismatch diagnostic
@@ -241,10 +241,10 @@ precision metrics inform model-quality and deployment decisions.
 
 ## Canonical solution
 
-- [Report types and independent judge](../../Sources/LeetLLMCore/Problems/P034QuantizationPropagation.swift)
-- [Canonical investigation](../../Sources/LeetLLMSolutions/P034QuantizationPropagationSolution.swift)
-- [Shared quantized formats](../../Sources/LeetLLMCore/Problems/QuantizedWeightTypes.swift)
-- [Diagnostic tests](../../Tests/LeetLLMCoreTests/P034QuantizationPropagationTests.swift)
+- [Report types and independent judge](../../Sources/InferenceSchoolCore/Problems/P034QuantizationPropagation.swift)
+- [Canonical investigation](../../Sources/InferenceSchoolSolutions/P034QuantizationPropagationSolution.swift)
+- [Shared quantized formats](../../Sources/InferenceSchoolCore/Problems/QuantizedWeightTypes.swift)
+- [Diagnostic tests](../../Tests/InferenceSchoolCoreTests/P034QuantizationPropagationTests.swift)
 
 ## Completion checklist
 

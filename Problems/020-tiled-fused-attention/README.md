@@ -110,9 +110,9 @@ and compares against materialized attention with
 head-width limit.
 
 ```sh
-swift run leetllm check 020 --cpu
-swift run leetllm check 020 --metal
-swift run leetllm check 020 --solution
+swift run inference-school check 020 --cpu
+swift run inference-school check 020 --metal
+swift run inference-school check 020 --solution
 ```
 
 ## Performance model
@@ -160,7 +160,7 @@ flowchart TD
 	Normalize --> Write["Write one output head"]
 ```
 
-See [P020TiledAttention.metal](../../Sources/LeetLLMSolutions/Metal/P020TiledAttention.metal).
+See [P020TiledAttention.metal](../../Sources/InferenceSchoolSolutions/Metal/P020TiledAttention.metal).
 
 ## Implementation checkpoints
 
@@ -219,9 +219,9 @@ schedule over cached K/V.
 
 ## Canonical solution
 
-- [CPU tiled solution](../../Sources/LeetLLMSolutions/P020TiledAttentionSolution.swift)
-- [Fused Metal solution](../../Sources/LeetLLMSolutions/Metal/P020TiledAttention.metal)
-- [Metal pipeline and bounds](../../Sources/LeetLLMCore/Metal/MetalTiledAttentionPipeline.swift)
+- [CPU tiled solution](../../Sources/InferenceSchoolSolutions/P020TiledAttentionSolution.swift)
+- [Fused Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P020TiledAttention.metal)
+- [Metal pipeline and bounds](../../Sources/InferenceSchoolCore/Metal/MetalTiledAttentionPipeline.swift)
 
 ## Completion checklist
 

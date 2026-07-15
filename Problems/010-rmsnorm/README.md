@@ -143,9 +143,9 @@ convention.
 Run:
 
 ```sh
-swift run leetllm check 010 --cpu
-swift run leetllm check 010 --metal
-swift run leetllm check 010 --solution
+swift run inference-school check 010 --cpu
+swift run inference-school check 010 --metal
+swift run inference-school check 010 --solution
 ```
 
 ## Performance model
@@ -180,7 +180,7 @@ The kernel combines reduction and scale in one dispatch, but it still reads
 input twice. Problem 012 fuses the scaled values directly into a projection so
 the normalized output is never written to global memory.
 
-See [P010RMSNorm.metal](../../Sources/LeetLLMSolutions/Metal/P010RMSNorm.metal).
+See [P010RMSNorm.metal](../../Sources/InferenceSchoolSolutions/Metal/P010RMSNorm.metal).
 
 ## Implementation checkpoints
 
@@ -242,8 +242,8 @@ the residual input; Problem 012 consumes RMS-normalized values inside a GEMV.
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P010RMSNormSolution.swift)
-- [Metal solution](../../Sources/LeetLLMSolutions/Metal/P010RMSNorm.metal)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P010RMSNormSolution.swift)
+- [Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P010RMSNorm.metal)
 
 ## Completion checklist
 

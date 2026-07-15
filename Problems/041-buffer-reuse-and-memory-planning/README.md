@@ -173,8 +173,8 @@ this arena. The cache remains separately preallocated by Problems 022/039/040.
 Run the report:
 
 ```sh
-swift run leetllm benchmark 041 --tokens 16 --cached-tokens 16
-swift run leetllm benchmark 041 --tokens 128 --cached-tokens 128
+swift run inference-school benchmark 041 --tokens 16 --cached-tokens 16
+swift run inference-school benchmark 041 --tokens 128 --cached-tokens 128
 ```
 
 Despite the shared `benchmark` command family, Problem 041 reports deterministic
@@ -192,8 +192,8 @@ The contract independently checks returned placements. A malicious or mistaken
 planner cannot pass merely by reporting the expected arena size.
 
 ```sh
-swift run leetllm check 041 --cpu
-swift run leetllm check 041 --solution
+swift run inference-school check 041 --cpu
+swift run inference-school check 041 --solution
 ```
 
 ## Bytes, bounds, and complexity
@@ -291,11 +291,11 @@ claims.
 
 ## Canonical solution
 
-- [Lifetimes, placements, validation, schedules, and judge](../../Sources/LeetLLMCore/Problems/P041BufferPlanning.swift)
-- [Learner starter](../../Sources/LeetLLMExercises/P041BufferPlanningExercise.swift)
-- [Deterministic first-fit and best-fit solution](../../Sources/LeetLLMSolutions/P041BufferPlanningSolution.swift)
-- [Focused planner and schedule tests](../../Tests/LeetLLMCoreTests/P041BufferPlanningTests.swift)
-- [Shared mini-model dimensions](../../Sources/LeetLLMCore/Problems/MiniDecoderTypes.swift)
+- [Lifetimes, placements, validation, schedules, and judge](../../Sources/InferenceSchoolCore/Problems/P041BufferPlanning.swift)
+- [Learner starter](../../Sources/InferenceSchoolExercises/P041BufferPlanningExercise.swift)
+- [Deterministic first-fit and best-fit solution](../../Sources/InferenceSchoolSolutions/P041BufferPlanningSolution.swift)
+- [Focused planner and schedule tests](../../Tests/InferenceSchoolCoreTests/P041BufferPlanningTests.swift)
+- [Shared mini-model dimensions](../../Sources/InferenceSchoolCore/Problems/MiniDecoderTypes.swift)
 
 ## Completion checklist
 

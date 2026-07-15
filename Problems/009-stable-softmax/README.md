@@ -137,9 +137,9 @@ constructs width 1025 and verifies the public `rowWidthExceedsMaximum` error.
 Run:
 
 ```sh
-swift run leetllm check 009 --cpu
-swift run leetllm check 009 --metal
-swift run leetllm check 009 --solution
+swift run inference-school check 009 --cpu
+swift run inference-school check 009 --metal
+swift run inference-school check 009 --solution
 ```
 
 ## Performance model
@@ -178,7 +178,7 @@ this first materialized implementation to at most four values per thread and
 makes unsupported attention rows fail visibly. Problem 019's online softmax is
 the later artifact for unbounded streaming rows.
 
-See [P009Softmax.metal](../../Sources/LeetLLMSolutions/Metal/P009Softmax.metal).
+See [P009Softmax.metal](../../Sources/InferenceSchoolSolutions/Metal/P009Softmax.metal).
 
 ## Implementation checkpoints
 
@@ -239,8 +239,8 @@ finite sentinel before this API or define a mask-aware softmax contract. Problem
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P009SoftmaxSolution.swift)
-- [Metal solution](../../Sources/LeetLLMSolutions/Metal/P009Softmax.metal)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P009SoftmaxSolution.swift)
+- [Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P009Softmax.metal)
 
 ## Completion checklist
 

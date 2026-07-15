@@ -95,7 +95,7 @@ flowchart TD
 ```
 
 ```sh
-swift run -c release leetllm profile 044 \
+swift run -c release inference-school profile 044 \
   --prompt-tokens 16 --trials 7 --warmup 2 --decode-steps 4
 ```
 
@@ -185,10 +185,10 @@ The profile identifies whether the next engine change should target prompt execu
 
 ## Canonical solution
 
-- [Contracts, statistics, work reports, and judge](../../Sources/LeetLLMCore/Problems/P044PrefillDecodeProfiling.swift)
-- [Learner profiler](../../Sources/LeetLLMExercises/P044PrefillDecodeProfilingExercise.swift)
-- [Canonical profiler](../../Sources/LeetLLMSolutions/P044PrefillDecodeProfilingSolution.swift)
-- [Focused tests](../../Tests/LeetLLMCoreTests/P044PrefillDecodeProfilingTests.swift)
+- [Contracts, statistics, work reports, and judge](../../Sources/InferenceSchoolCore/Problems/P044PrefillDecodeProfiling.swift)
+- [Learner profiler](../../Sources/InferenceSchoolExercises/P044PrefillDecodeProfilingExercise.swift)
+- [Canonical profiler](../../Sources/InferenceSchoolSolutions/P044PrefillDecodeProfilingSolution.swift)
+- [Focused tests](../../Tests/InferenceSchoolCoreTests/P044PrefillDecodeProfilingTests.swift)
 
 ## Completion checklist
 

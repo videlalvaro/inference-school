@@ -2,15 +2,15 @@ PYTHON ?= python3
 PANDOC ?= pandoc
 LATEXMK ?= latexmk
 BUILD_DIR := build
-BOOK_NAME := LeetLLM-Companion
+BOOK_NAME := Inference-School-Companion
 MANUSCRIPT := $(BUILD_DIR)/manuscript.md
 TEX := $(BUILD_DIR)/$(BOOK_NAME).tex
 PDF := $(BUILD_DIR)/$(BOOK_NAME).pdf
 CHAPTERS ?=
 NOTE_FRAGMENTS := $(wildcard solution_notes/*.json)
 LESSONS := $(wildcard ../Problems/*/README.md)
-EXERCISE_SOURCES := $(shell find ../Sources/LeetLLMExercises -type f \( -name '*.swift' -o -name '*.metal' \))
-SOLUTION_SOURCES := $(shell find ../Sources/LeetLLMSolutions -type f \( -name '*.swift' -o -name '*.metal' \))
+EXERCISE_SOURCES := $(shell find ../Sources/InferenceSchoolExercises -type f \( -name '*.swift' -o -name '*.metal' \))
+SOLUTION_SOURCES := $(shell find ../Sources/InferenceSchoolSolutions -type f \( -name '*.swift' -o -name '*.metal' \))
 APPENDICES := ../docs/ONE-TOKEN.md ../docs/MATH-PRIMER.md
 
 .PHONY: all book check sample manuscript tex clean

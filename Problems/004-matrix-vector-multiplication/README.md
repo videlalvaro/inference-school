@@ -108,7 +108,7 @@ change both address arithmetic and performance.
 ## CPU reference path
 
 Open
-[P004GEMVExercise.swift](../../Sources/LeetLLMExercises/P004GEMVExercise.swift).
+[P004GEMVExercise.swift](../../Sources/InferenceSchoolExercises/P004GEMVExercise.swift).
 
 The starter preserves all validation and returns the correct output shape with
 wrong zero values. Replace only the value computation:
@@ -127,7 +127,7 @@ return tensor(output, shape: [M])
 Run:
 
 ```sh
-swift run leetllm check 004 --cpu
+swift run inference-school check 004 --cpu
 ```
 
 This loop is intentionally direct. Faster CPU libraries may vectorize,
@@ -185,7 +185,7 @@ small matrices.
 ## Metal mapping
 
 Open
-[P004GEMV.metal](../../Sources/LeetLLMExercises/Metal/P004GEMV.metal).
+[P004GEMV.metal](../../Sources/InferenceSchoolExercises/Metal/P004GEMV.metal).
 
 The host dispatches `M` threadgroups of 256 threads. Group position identifies
 the output row. Local thread $t$ accumulates columns
@@ -236,9 +236,9 @@ flowchart LR
 Commands:
 
 ```sh
-swift run leetllm check 004 --cpu
-swift run leetllm check 004 --metal
-swift run leetllm check 004
+swift run inference-school check 004 --cpu
+swift run inference-school check 004 --metal
+swift run inference-school check 004
 ```
 
 ## Controlled experiments
@@ -310,11 +310,11 @@ threadgroup width until `column >= K`.
 <summary>Canonical check</summary>
 
 ```sh
-swift run leetllm check 004 --solution
+swift run inference-school check 004 --solution
 ```
 
-Canonical Swift, host, and Metal sources live under `Sources/LeetLLMSolutions`
-and `Sources/LeetLLMCore/Metal`.
+Canonical Swift, host, and Metal sources live under `Sources/InferenceSchoolSolutions`
+and `Sources/InferenceSchoolCore/Metal`.
 
 </details>
 

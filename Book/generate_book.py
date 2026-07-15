@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the LeetLLM companion manuscript from curriculum source files."""
+"""Generate the Inference School companion manuscript from curriculum source files."""
 
 from __future__ import annotations
 
@@ -15,8 +15,8 @@ from typing import Iterable
 BOOK_DIRECTORY = Path(__file__).resolve().parent
 REPOSITORY_ROOT = BOOK_DIRECTORY.parent
 PROBLEMS_DIRECTORY = REPOSITORY_ROOT / "Problems"
-EXERCISES_DIRECTORY = REPOSITORY_ROOT / "Sources" / "LeetLLMExercises"
-SOLUTIONS_DIRECTORY = REPOSITORY_ROOT / "Sources" / "LeetLLMSolutions"
+EXERCISES_DIRECTORY = REPOSITORY_ROOT / "Sources" / "InferenceSchoolExercises"
+SOLUTIONS_DIRECTORY = REPOSITORY_ROOT / "Sources" / "InferenceSchoolSolutions"
 
 ORIENTATION_CHAPTER_ID = "000"
 COURSE_CHAPTER_IDS = tuple(f"{chapter:03d}" for chapter in range(1, 48))

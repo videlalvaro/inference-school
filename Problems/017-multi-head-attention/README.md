@@ -97,9 +97,9 @@ zero output and a head-zero broadcast both fail. The judge uses the same
 absolute/relative tolerance as the materialized one-head oracle.
 
 ```sh
-swift run leetllm check 017 --cpu
-swift run leetllm check 017 --metal
-swift run leetllm check 017 --solution
+swift run inference-school check 017 --cpu
+swift run inference-school check 017 --metal
+swift run inference-school check 017 --solution
 ```
 
 ## Performance model
@@ -126,7 +126,7 @@ The baseline recomputes scores while writing features instead of allocating an
 `H*S*S` matrix. It uses no barriers or threadgroup memory. Problems 019 and 020
 replace that repeated work with streaming state and tiling.
 
-See [P017MultiHeadAttention.metal](../../Sources/LeetLLMSolutions/Metal/P017MultiHeadAttention.metal).
+See [P017MultiHeadAttention.metal](../../Sources/InferenceSchoolSolutions/Metal/P017MultiHeadAttention.metal).
 
 ## Implementation checkpoints
 
@@ -176,9 +176,9 @@ preserve this query-head output layout.
 
 ## Canonical solution
 
-- [CPU solution](../../Sources/LeetLLMSolutions/P017MultiHeadAttentionSolution.swift)
-- [Metal solution](../../Sources/LeetLLMSolutions/Metal/P017MultiHeadAttention.metal)
-- [Contract and judge](../../Sources/LeetLLMCore/Problems/P017MultiHeadAttention.swift)
+- [CPU solution](../../Sources/InferenceSchoolSolutions/P017MultiHeadAttentionSolution.swift)
+- [Metal solution](../../Sources/InferenceSchoolSolutions/Metal/P017MultiHeadAttention.metal)
+- [Contract and judge](../../Sources/InferenceSchoolCore/Problems/P017MultiHeadAttention.swift)
 
 ## Completion checklist
 

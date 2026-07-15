@@ -98,7 +98,7 @@ flowchart TD
 ```
 
 ```sh
-swift run leetllm check 045 --cpu --solution
+swift run inference-school check 045 --cpu --solution
 ```
 
 ## Correctness method
@@ -193,10 +193,10 @@ A production version would give each admitted request a tokenizer result, sample
 
 ## Canonical solution
 
-- [Contracts, semantic oracle, fixture, and judge](../../Sources/LeetLLMCore/Problems/P045BatchScheduling.swift)
-- [Learner simulator](../../Sources/LeetLLMExercises/P045BatchSchedulingExercise.swift)
-- [Canonical simulator](../../Sources/LeetLLMSolutions/P045BatchSchedulingSolution.swift)
-- [Focused tests](../../Tests/LeetLLMCoreTests/P045BatchSchedulingTests.swift)
+- [Contracts, semantic oracle, fixture, and judge](../../Sources/InferenceSchoolCore/Problems/P045BatchScheduling.swift)
+- [Learner simulator](../../Sources/InferenceSchoolExercises/P045BatchSchedulingExercise.swift)
+- [Canonical simulator](../../Sources/InferenceSchoolSolutions/P045BatchSchedulingSolution.swift)
+- [Focused tests](../../Tests/InferenceSchoolCoreTests/P045BatchSchedulingTests.swift)
 
 ## Completion checklist
 
