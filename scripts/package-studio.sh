@@ -48,8 +48,17 @@ for executable_path in \
     "$staging_path/Contents/MacOS/inference-school-studio" \
     "$staging_path/Contents/Helpers/inference-school-runner"
 do
-    if /usr/bin/strings -a "$executable_path" | grep -F -- "$repo_root" > /dev/null; then
+    # Debug builds may retain dependency source locations. Reject only paths that
+    # can make the packaged executables depend on this repository at runtime.
+    leaked_checkout_paths=$(
+        /usr/bin/strings -a "$executable_path" \
+            | grep -F -- "$repo_root" \
+            | grep -Fv -- "$repo_root/.build/checkouts/" \
+            || true
+    )
+    if [[ -n "$leaked_checkout_paths" ]]; then
         print -u2 "packaged executable contains the source checkout path: $executable_path"
+        print -u2 "$leaked_checkout_paths"
         exit 1
     fi
 done
