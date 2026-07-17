@@ -52,21 +52,25 @@ separate: they run with the permissions of your terminal session.
 
 ## Companion book
 
-The complete course is available as a 545-page PDF with native diagrams,
-exercises, and chapter-end solutions:
+The complete course is available as a 545-page PDF and a reflowable EPUB with
+native diagrams, exercises, and chapter-end solutions:
 
 [Download the Inference School Companion PDF](dist/Inference-School-Companion.pdf)
+
+[Download the Inference School Companion EPUB](dist/Inference-School-Companion.epub)
 
 Rebuild and verify it with:
 
 ```sh
 make -C Book check
 open "dist/Inference-School-Companion.pdf"
+open "dist/Inference-School-Companion.epub"
 ```
 
 The book toolchain requires Python 3, Pandoc, LuaLaTeX, latexmk, and
-Ghostscript. Intermediate book files remain excluded from Git; the published
-PDF is versioned so readers can download it directly from the repository.
+Ghostscript. The complete verification command also requires EPUBCheck.
+Intermediate book files remain excluded from Git; the published PDF and EPUB
+are versioned so readers can download them directly from the repository.
 
 ## Project status
 

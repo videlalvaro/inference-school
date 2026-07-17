@@ -546,6 +546,15 @@ struct PreviewedLocalDocument: Identifiable {
     let baseURL: URL
     let kind: Kind
 
+    var renderedContents: String {
+        switch kind {
+        case .markdown:
+            LessonMarkdownRendering.normalizeDisplayMath(in: contents)
+        case .source:
+            contents
+        }
+    }
+
     init?(resolving url: URL) {
         let absolute = url.absoluteURL
         guard absolute.isFileURL,
@@ -606,8 +615,7 @@ private struct LocalDocumentPreviewSheet: View {
                 case .markdown:
                     ScrollView {
                         StructuredText(
-                            markdown: LessonMarkdownRendering
-                                .normalizeDisplayMath(in: document.contents),
+                            markdown: document.renderedContents,
                             baseURL: document.baseURL,
                             syntaxExtensions: [.math]
                         )

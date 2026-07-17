@@ -1,0 +1,149 @@
+body {
+  color: #17202a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: #204a87;
+}
+
+h1,
+h2,
+h3 {
+  color: #163a5f;
+  line-height: 1.2;
+}
+
+h1.part {
+  break-before: page;
+  margin-top: 28%;
+  text-align: center;
+}
+
+.chapter-focus,
+.hint,
+.exercise,
+.solution-strategy,
+.invariant,
+.pitfall,
+.implementation-point,
+.reading-guide {
+  background: #f5f8fc;
+  border-left: 0.3rem solid #3465a4;
+  margin: 1.2rem 0;
+  padding: 0.75rem 1rem;
+}
+
+.exercise {
+  background: #f3f8ef;
+  border-left-color: #4e7d3a;
+}
+
+.solution-strategy,
+.invariant {
+  background: #edf7f4;
+  border-left-color: #26705f;
+}
+
+.pitfall {
+  background: #fff4ee;
+  border-left-color: #a64b2a;
+}
+
+.implementation-point,
+.reading-guide {
+  background: #f7f4fb;
+  border-left-color: #72519b;
+}
+
+.callout-title {
+  font-weight: 700;
+  margin: 0 0 0.45rem;
+}
+
+code {
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  overflow-wrap: anywhere;
+}
+
+pre {
+  background: #f3f4f6;
+  border: 1px solid #d7dbe0;
+  border-radius: 0.3rem;
+  font-size: 0.82em;
+  line-height: 1.35;
+  padding: 0.75rem;
+  white-space: pre-wrap;
+  word-break: normal;
+}
+
+figure {
+  break-inside: avoid;
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+figure img,
+img[src$=".svg"] {
+  height: auto;
+  max-width: 100%;
+}
+
+figcaption {
+  color: #4f5964;
+  font-size: 0.9em;
+  margin-top: 0.5rem;
+}
+
+table {
+  border-collapse: collapse;
+  display: table;
+  font-size: 0.9em;
+  max-width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #aeb6bf;
+  padding: 0.35rem 0.5rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #e8edf2;
+    background: #15191d;
+  }
+
+  a,
+  h1,
+  h2,
+  h3 {
+    color: #8fc7ff;
+  }
+
+  .chapter-focus,
+  .hint,
+  .exercise,
+  .solution-strategy,
+  .invariant,
+  .pitfall,
+  .implementation-point,
+  .reading-guide,
+  pre {
+    color: #e8edf2;
+    background: #222930;
+  }
+
+  pre,
+  th,
+  td {
+    border-color: #59636d;
+  }
+
+  figcaption {
+    color: #bdc7d0;
+  }
+}

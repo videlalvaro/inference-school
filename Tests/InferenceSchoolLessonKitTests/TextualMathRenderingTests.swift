@@ -66,6 +66,103 @@ final class TextualMathRenderingTests: XCTestCase {
         )
     }
 
+    func testUnsupportedMathCommandsInProseAndInlineCodeArePreserved() {
+        let markdown = #"""
+            Prose keeps \operatorname{SiLU}, \bmod, and \boldsymbol{gamma}.
+
+            Inline code keeps `\operatorname{SiLU}`, `\bmod`, and `\boldsymbol{gamma}`.
+
+            Math changes $\operatorname{SiLU}(x) = x \bmod 4$ and $\boldsymbol{\gamma}$.
+            """#
+
+        XCTAssertEqual(
+            LessonMarkdownRendering.normalizeDisplayMath(in: markdown),
+            #"""
+            Prose keeps \operatorname{SiLU}, \bmod, and \boldsymbol{gamma}.
+
+            Inline code keeps `\operatorname{SiLU}`, `\bmod`, and `\boldsymbol{gamma}`.
+
+            Math changes $\mathrm{SiLU}(x) = x \mathrm{mod} 4$ and $\mathbf{\gamma}$.
+            """#
+        )
+    }
+
+    func testMultilineInlineCodeIsPreserved() {
+        let markdown = #"""
+            Code starts `here
+            $$
+            \operatorname{SiLU}(x) = x \bmod 4
+            $$
+            and ends here`.
+
+            Math changes $\boldsymbol{\gamma}$.
+            """#
+
+        XCTAssertEqual(
+            LessonMarkdownRendering.normalizeDisplayMath(in: markdown),
+            #"""
+            Code starts `here
+            $$
+            \operatorname{SiLU}(x) = x \bmod 4
+            $$
+            and ends here`.
+
+            Math changes $\mathbf{\gamma}$.
+            """#
+        )
+    }
+
+    func testUnmatchedBacktickDoesNotSuppressLaterMath() {
+        let markdown = #"""
+            An unmatched ` stays literal.
+
+            Math changes $\operatorname{SiLU}(x)$.
+            """#
+
+        XCTAssertEqual(
+            LessonMarkdownRendering.normalizeDisplayMath(in: markdown),
+            #"""
+            An unmatched ` stays literal.
+
+            Math changes $\mathrm{SiLU}(x)$.
+            """#
+        )
+    }
+
+    func testShorterBacktickRunDoesNotCloseLongerFence() {
+        let markdown = #"""
+            ````text
+            ```
+            $$
+            \operatorname{SiLU}(x) = x \bmod 4
+            $$
+            ```
+            ````
+            """#
+
+        XCTAssertEqual(
+            LessonMarkdownRendering.normalizeDisplayMath(in: markdown),
+            markdown
+        )
+    }
+
+    func testShorterTildeRunDoesNotCloseLongerFence() {
+        let markdown = #"""
+            ~~~~text
+            ~~~
+            $$
+            \boldsymbol{\gamma}
+            $$
+            ~~~
+            ~~~~
+            """#
+
+        XCTAssertEqual(
+            LessonMarkdownRendering.normalizeDisplayMath(in: markdown),
+            markdown
+        )
+    }
+
     func testCompletionChecklistBecomesTypedBlock() {
         let lesson = LessonDocument(
             id: "sample",
