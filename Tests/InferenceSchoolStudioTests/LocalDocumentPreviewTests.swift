@@ -9,17 +9,29 @@ final class LocalDocumentPreviewTests: XCTestCase {
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         defer { try? FileManager.default.removeItem(at: directory) }
 
+        let markdownContents = #"""
+            # Math Primer
+
+            $$
+            \mathbf{x} = [1, 2, 3]
+            $$
+            """#
         let markdownURL = directory.appending(path: "primer.md")
-        try "# Math Primer\n\nBody".write(to: markdownURL, atomically: true, encoding: .utf8)
+        try markdownContents.write(to: markdownURL, atomically: true, encoding: .utf8)
         let markdown = try XCTUnwrap(PreviewedLocalDocument(resolving: markdownURL))
         XCTAssertEqual(markdown.title, "Math Primer")
-        XCTAssertEqual(markdown.contents, "# Math Primer\n\nBody")
+        XCTAssertEqual(markdown.contents, markdownContents)
+        XCTAssertEqual(
+            markdown.renderedContents,
+            "# Math Primer\n\n$$\\mathbf{x} = [1, 2, 3]$$"
+        )
         XCTAssertEqual(markdown.kind, .markdown)
 
         let swiftURL = directory.appending(path: "Example.swift")
         try "let value = 42\n".write(to: swiftURL, atomically: true, encoding: .utf8)
         let swift = try XCTUnwrap(PreviewedLocalDocument(resolving: swiftURL))
         XCTAssertEqual(swift.title, "Example.swift")
+        XCTAssertEqual(swift.renderedContents, swift.contents)
         XCTAssertEqual(swift.kind, .source(language: "swift"))
 
         let metalURL = directory.appending(path: "Kernel.metal")
