@@ -2,6 +2,7 @@
 Book/build/
 dist/*
 !dist/Inference-School-Companion.pdf
+!dist/Inference-School-Companion.epub
 .swiftpm/
 DerivedData/
 xcuserdata/
